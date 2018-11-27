@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Connect Reducer
+import manageCrypto from './reducers/manageCrypto';
 // ADD REDUX
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 // TO BE DETERMINED NAME OF REDUCERS
-const store = createStore();
+const store = createStore(manageCrypto);
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
