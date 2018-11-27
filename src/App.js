@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Cryptos from './components/Cryptos/Cryptos'
 import './App.css';
 
 export default class App extends Component {
@@ -9,7 +9,7 @@ export default class App extends Component {
         <header className="App-header">
           My Crypto Balances
           <p>
-            List Cryptos an prices here
+          <Cryptos />
           </p>
         </header>
         {/* ADD COMPONENTS HERE? */}
