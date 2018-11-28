@@ -13,7 +13,6 @@ class Cryptos extends Component {
 
   handleAddCoin = e => {
     e.preventDefault()
-
     this.setState({
       openForm: true
     })
