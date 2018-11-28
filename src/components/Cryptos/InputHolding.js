@@ -16,12 +16,12 @@ class InputHolding extends Component {
   handleSubmit = e => {
     e.preventDefault()
     debugger
+    //  USe this.state to add to portfolio
     // USe a route to rerender and expose the form
     // Render the </InputHolding>
   }
 
   handleChange = evt => {
-    debugger
     this.setState({ [evt.target.name]: evt.target.value });
     // Set up form changes
   }
@@ -30,11 +30,15 @@ class InputHolding extends Component {
 
   render() {
     const showForm = (this.props.visible) ?
-      <form onSubmit={(e)=>this.Submit(e)}>
-        <input type="text" value="token" onChange={this.handleChange}/><br/>
-        <input type="text" value="amount" onChange={this.handleChange}/><br/>
-        <input type="text" value="cost basis" onChange={this.handleChange}/><br/>
-        <input type="text" value="wallet" onChange={this.handleChange}/><br/>
+      <form onSubmit={(e)=>this.handleSubmit(e)}>
+        <label>Token: </label>
+        <input type="text" name="token" onChange={this.handleChange}/><br/>
+        <label>Amount: </label>
+        <input type="text" name="amount" onChange={this.handleChange}/><br/>
+        <label>Cost Basis: </label>
+        <input type="text"  name="costbasis" onChange={this.handleChange}/><br/>
+        <label>Wallet: </label>
+        <input type="text"  name="wallet"  onChange={this.handleChange}/><br/>
         <input type="submit" />
       </form> : <div> </div>
 
