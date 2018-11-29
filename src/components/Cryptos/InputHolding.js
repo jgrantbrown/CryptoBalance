@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class InputHolding extends Component {
 
@@ -30,27 +31,46 @@ class InputHolding extends Component {
 
   render() {
     const showForm = (this.props.visible) ?
-      <form onSubmit={(e)=>this.handleSubmit(e)}>
-        <label>Token: </label>
-        <input type="text" name="token" onChange={this.handleChange}/><br/>
-        <label>Amount: </label>
-        <input type="text" name="amount" onChange={this.handleChange}/><br/>
-        <label>Cost Basis: </label>
-        <input type="text"  name="costbasis" onChange={this.handleChange}/><br/>
-        <label>Wallet: </label>
-        <input type="text"  name="wallet"  onChange={this.handleChange}/><br/>
-        <input type="submit" />
-      </form> : <div> </div>
 
+        <Form onSubmit={(e)=>this.handleSubmit(e)}>
+          <FormGroup row>
+            <Label for="exampleAmount" sm={2}>Amount</Label>
+            <Col sm={10}>
+              <Input type="text" name="token" id="exampleAmount" placeholder="amount placeholder" />
+            </Col>
+          </FormGroup>
+
+           <FormGroup row>
+             <Label for="exampleToken" sm={2}>Token</Label>
+             <Col sm={10}>
+               <Input type="text" name="token" id="exampleToken" placeholder="token placeholder" />
+             </Col>
+           </FormGroup>
+
+           <FormGroup row>
+             <Label for="exampleCostbasis" sm={2}>Costbasis</Label>
+             <Col sm={10}>
+               <Input type="text" name="costBasis" id="exampleCostbasis" placeholder="Costbasis placeholder" />
+             </Col>
+           </FormGroup>
+
+           <FormGroup row>
+             <Label for="exampleWallet" sm={2}>Wallet</Label>
+             <Col sm={10}>
+               <Input type="text" name="costWallet" id="exampleWallet" placeholder="Wallet placeholder" />
+             </Col>
+           </FormGroup>
+           <input type="submit" />
+       </Form>
+
+       : <div> </div>
 
       return (
         <div>
           {showForm}
+
         </div>
       )
-
-
-
 
   }}
 

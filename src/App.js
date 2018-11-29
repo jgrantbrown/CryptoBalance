@@ -7,10 +7,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>My Crypto Balances</p>
-
+          <p>Crypto Portfolio Balance</p>
           <Cryptos />
-
         </header>
         {/* ADD COMPONENTS HERE? */}
       </div>
