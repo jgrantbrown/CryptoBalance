@@ -36,28 +36,28 @@ class InputHolding extends Component {
           <FormGroup row>
             <Label for="exampleAmount" sm={2}>Amount</Label>
             <Col sm={10}>
-              <Input type="text" name="token" id="exampleAmount" placeholder="amount placeholder" />
+              <Input type="text" name="amount" id="exampleAmount" placeholder="amount placeholder" onChange={event => this.handleChange(event)} />
             </Col>
           </FormGroup>
 
            <FormGroup row>
              <Label for="exampleToken" sm={2}>Token</Label>
              <Col sm={10}>
-               <Input type="text" name="token" id="exampleToken" placeholder="token placeholder" />
+               <Input type="text" name="token" id="exampleToken" placeholder="token placeholder" onChange={event => this.handleChange(event)}/>
              </Col>
            </FormGroup>
 
            <FormGroup row>
              <Label for="exampleCostbasis" sm={2}>Costbasis</Label>
              <Col sm={10}>
-               <Input type="text" name="costBasis" id="exampleCostbasis" placeholder="Costbasis placeholder" />
+               <Input type="text" name="costbasis" id="exampleCostbasis" placeholder="Costbasis placeholder" onChange={event => this.handleChange(event)} />
              </Col>
            </FormGroup>
 
            <FormGroup row>
              <Label for="exampleWallet" sm={2}>Wallet</Label>
              <Col sm={10}>
-               <Input type="text" name="costWallet" id="exampleWallet" placeholder="Wallet placeholder" />
+               <Input type="text" name="wallet" id="exampleWallet" placeholder="Wallet placeholder" onChange={event => this.handleChange(event)}/>
              </Col>
            </FormGroup>
            <input type="submit" />
@@ -68,10 +68,9 @@ class InputHolding extends Component {
       return (
         <div>
           {showForm}
-
         </div>
       )
 
   }}
 
-  export default InputHolding;
+  export default connect(null,{})(InputHolding);

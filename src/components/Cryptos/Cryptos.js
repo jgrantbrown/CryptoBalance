@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import InputHolding from './InputHolding'
 import CryptoCards from './CryptoCards'
 import { Table,Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import {connect} from "react-redux";
-
-
 
 class Cryptos extends Component {
 
@@ -31,18 +29,17 @@ class Cryptos extends Component {
    });
  }
 
+  render(){
 
-
-  render() {
-
-    const holdings = this.props.holdings.map(holding =>
-      <>
-      <td>{holding.token} </td>
-      <td>{holding.wallet}</td>
-      <td>{holding.amount}</td>
-      <td>{holding.costbase}</td>
-      <td>{holding.amount * 3800}</td>
-      </> )
+    const holdingslist = this.props.holdings.map((holding,index) => {
+      return   <tr key={index}>
+        <td>{holding.token} </td>
+        <td>{holding.wallet}</td>
+        <td>{holding.amount}</td>
+        <td>{holding.costbase}</td>
+        <td>{holding.amount * 3800}</td>
+    </tr>
+  })
 
     return (
       <Container>
@@ -59,7 +56,6 @@ class Cryptos extends Component {
             <Col xs="8"><CryptoCards /></Col>
       </Row>
           <br/>
-
           <Table>
           <thead>
             <tr>
@@ -71,24 +67,23 @@ class Cryptos extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {holdings}
-            </tr>
+
+              {holdingslist}
+
           </tbody>
       </Table>
         <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
         <br/>
         <br/>
-
         <InputHolding visible={this.state.openForm} />
       </Container>
-
-    )
-  }}
-
-  function mapStateToProps(state){
-    return {holdings: state.portfolio
+    );
   }
+};
+
+const mapStateToProps=(state)=>{
+    return { holdings: state.portfolio}
 }
+
 
   export default connect(mapStateToProps)(Cryptos);
