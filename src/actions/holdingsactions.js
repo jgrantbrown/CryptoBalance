@@ -1,9 +1,9 @@
 
-export const ADD_HOLDING = "ADD_HOLDING"
 
-cont function addHolding(holding){
+
+export const addHolding = (holding)=>{
   return {
-    type: ADD_HOLDING,
-    holding
+    type: 'ADD_HOLDING',
+    payload: holding
   }
 }

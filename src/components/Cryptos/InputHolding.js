@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
-
+import { connect } from 'react-redux';
+import {addHolding} from '../../actions/holdingsactions';
 class InputHolding extends Component {
 
   constructor(props) {
@@ -16,10 +17,17 @@ class InputHolding extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    debugger
+    console.log(this.state)
+    this.props.addHolding(this.state)
     //  USe this.state to add to portfolio
     // USe a route to rerender and expose the form
     // Render the </InputHolding>
+    this.setState({
+      token: "",
+      amount: "",
+      costbasis: "",
+      wallet: ""
+    });
   }
 
   handleChange = evt => {
@@ -73,4 +81,4 @@ class InputHolding extends Component {
 
   }}
 
-  export default connect(null,{})(InputHolding);
+  export default connect(null,{addHolding})(InputHolding);
