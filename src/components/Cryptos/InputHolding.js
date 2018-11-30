@@ -19,7 +19,7 @@ class InputHolding extends Component {
     e.preventDefault()
     console.log(this.state)
     this.props.addHolding(this.state)
-    // THis is not reseting after action reducer?
+  
     this.setState({
       token: "",
       amount: "",

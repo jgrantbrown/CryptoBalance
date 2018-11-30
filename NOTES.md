@@ -1,27 +1,19 @@
-{/* <div style={{display: "inline-block",
-backgroundColor: "gray",
-textAlign: "center",
-margin: "0",
-padding: "0",
-listStyleType: "none"
-}}> */}
-    // <div style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-    //   <h2 style={{ padding: "10px 10px", textAlign: "center", color: "white"}}>
-    //     ETH:
-    //     $117.00
-    //   </h2>
-    // </div>
-    //
-    // <div style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-    //     <h2 style={{ padding: "10px 10px", textAlign: "center", color: "white"}}>
-    //       BTC:
-    //       $117.00
-    //     </h2>
-    //   </div>
-    //   <div style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-    //       <h2 style={{ padding: "10px 10px", textAlign: "center", color: "white"}}>
-    //         LTC
-    //         $117.00
-    //       </h2>
-    //   </div>
-// </div>
+
+Next steps:
+Crypto cards should have correct logos
+Crypto cards should update with price from API
+
+Portfolio:
+Should have a subtotal for all holdings
+Only include specfic coins(Drop down menu on form)
+Should be able to remove  and or update a holding
+
+Portfilios drop down should have users portfolios to choose From
+login?
+
+NEED:
+HOme page with a create portfolio button?
+  (include a name for user)
+Router
+API call from rails
+Persist some data!!
