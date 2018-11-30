@@ -19,9 +19,7 @@ class InputHolding extends Component {
     e.preventDefault()
     console.log(this.state)
     this.props.addHolding(this.state)
-    //  USe this.state to add to portfolio
-    // USe a route to rerender and expose the form
-    // Render the </InputHolding>
+    // THis is not reseting after action reducer?
     this.setState({
       token: "",
       amount: "",
@@ -44,28 +42,28 @@ class InputHolding extends Component {
           <FormGroup row>
             <Label for="exampleAmount" sm={2}>Amount</Label>
             <Col sm={10}>
-              <Input type="text" name="amount" id="exampleAmount" placeholder="amount placeholder" onChange={event => this.handleChange(event)} />
+              <Input type="text" name="amount" id="exampleAmount"  placeholder="amount placeholder" value={this.state.amount} onChange={event => this.handleChange(event)} />
             </Col>
           </FormGroup>
 
            <FormGroup row>
              <Label for="exampleToken" sm={2}>Token</Label>
              <Col sm={10}>
-               <Input type="text" name="token" id="exampleToken" placeholder="token placeholder" onChange={event => this.handleChange(event)}/>
+               <Input type="text" name="token" id="exampleToken" placeholder="token placeholder" value={this.state.token}  onChange={event => this.handleChange(event)}/>
              </Col>
            </FormGroup>
 
            <FormGroup row>
              <Label for="exampleCostbasis" sm={2}>Costbasis</Label>
              <Col sm={10}>
-               <Input type="text" name="costbasis" id="exampleCostbasis" placeholder="Costbasis placeholder" onChange={event => this.handleChange(event)} />
+               <Input type="text" name="costbasis" id="exampleCostbasis" placeholder="Costbasis placeholder" value={this.state.costbasis} onChange={event => this.handleChange(event)} />
              </Col>
            </FormGroup>
 
            <FormGroup row>
              <Label for="exampleWallet" sm={2}>Wallet</Label>
              <Col sm={10}>
-               <Input type="text" name="wallet" id="exampleWallet" placeholder="Wallet placeholder" onChange={event => this.handleChange(event)}/>
+               <Input type="text" name="wallet" id="exampleWallet" placeholder="Wallet placeholder" value={this.state.wallet} onChange={event => this.handleChange(event)}/>
              </Col>
            </FormGroup>
            <input type="submit" />
