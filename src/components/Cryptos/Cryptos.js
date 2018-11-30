@@ -29,17 +29,18 @@ class Cryptos extends Component {
    });
  }
 
-  render(){
 
+  render(){
+  
     const holdingslist = this.props.holdings.map((holding,index) => {
-      return   <tr key={index}>
+      return   (<tr key={index}>
         <td>{holding.token} </td>
         <td>{holding.wallet}</td>
         <td>{holding.amount}</td>
         <td>{holding.costbase}</td>
         <td>{holding.amount * 3800}</td>
-    </tr>
-  })
+    </tr>);
+    })
 
     return (
       <Container>
@@ -81,7 +82,8 @@ class Cryptos extends Component {
   }
 };
 
-const mapStateToProps=(state)=>{
+const mapStateToProps = (state) => {
+    console.log("New State:", state.portfolio)
     return { holdings: state.portfolio}
 }
 
