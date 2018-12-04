@@ -4,6 +4,8 @@ import InputHolding from './InputHolding'
 import CryptoCards from './CryptoCards'
 import { Table,Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Portfolio from '../Portfolios/Portfolio'
+
+
 class Cryptos extends Component {
 
   constructor(props) {

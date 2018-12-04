@@ -8,7 +8,6 @@ class Portfolio extends Component {
       super(props);
       this.state = {
         openForm: false,
-
       };
     }
 

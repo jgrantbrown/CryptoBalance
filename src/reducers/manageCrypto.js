@@ -1,4 +1,16 @@
 const initialState = {
+  portfolios: [
+    {name: '',
+    holdings: []}
+  ],
+
+  holding: [
+    {
+      token:"betacoin",
+      amount: 1,
+      costbasis: "5",
+      wallet: "Betacoinbase"}
+  ],
   portfolio: [
     {
       token:"betacoin",
