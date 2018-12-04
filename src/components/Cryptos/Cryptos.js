@@ -11,7 +11,8 @@ class Cryptos extends Component {
   constructor(props) {
       super(props);
       this.state = {
-         dropdownOpen: false
+         dropdownOpen: false,
+         showHoldings: false
       };
     }
 
@@ -21,6 +22,14 @@ class Cryptos extends Component {
      dropdownOpen: !this.state.dropdownOpen
    });
  }
+
+ toggleShowHoldings = () =>{
+  this.setState({
+    showHoldings: true,
+  });
+}
+
+
 
 
   render(){
@@ -47,13 +56,13 @@ class Cryptos extends Component {
           <DropdownMenu>
             <DropdownItem header>Dropdown header</DropdownItem>
             <DropdownItem >Add Portfolio</DropdownItem>
-            <DropdownItem >Portfolio 1</DropdownItem>
+            <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1</DropdownItem>
           </DropdownMenu>
         </ButtonDropdown></Col>
             <Col xs="8"><CryptoCards /></Col>
       </Row>
           <br/>
-          <Portfolio holdings= {holdingslist} />
+          <Portfolio holdings={holdingslist} showHoldings={this.state.showHoldings} />
       </Container>
     );
   }
@@ -66,3 +75,5 @@ const mapStateToProps = (state) => {
 
 
   export default connect(mapStateToProps)(Cryptos);
+
+  // NOTES: Need to grab the specfic portfolio and Id to pass the holdings and be able to display on click of that portfolio

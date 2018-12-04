@@ -21,37 +21,41 @@ class Portfolio extends Component {
   }
 
   render() {
-  const showHoldings = () => {
-      return (
-        <><Table>
-      <thead>
-        <tr>
-          <th> Coin </th>
-          <th> Wallet </th>
-          <th> Coins Held</th>
-          <th> Cost Basis</th>
-          <th> Current Price </th>
-          <th> Mkt Value</th>
-        </tr>
-      </thead>
-      <tbody>
+    console.log("these props for Portfolio",this.props)
 
-          {this.props.holdings}
+    const showPortfolio = () => {
+      if (this.props.showHoldings === true){  return (
+            <>
+            <Table>
+              <thead>
+                <tr>
+                  <th> Coin </th>
+                  <th> Wallet </th>
+                  <th> Coins Held</th>
+                  <th> Cost Basis</th>
+                  <th> Current Price </th>
+                  <th> Mkt Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {this.props.holdings}
 
-      </tbody>
-
-    </Table>
-    <p> Total: </p>
-    <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
-    <br/>
-    <br/>
-    <InputHolding visible={this.state.openForm} /></>)
-    }
+              </tbody>
+           </Table>
+            <p> Total: {this.props.showHoldings}</p>
+            <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
+            <br/>
+            <br/>
+            <InputHolding visible={this.state.openForm} />
+          </>)
+      }else{
+        return( <div></div>)
+      }} 
 
     return (
       <div>
           A portfolio
-          {showHoldings()}
+          {showPortfolio()}
       </div>
 
     )

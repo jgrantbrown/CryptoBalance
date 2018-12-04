@@ -8,7 +8,6 @@ class CryptoCards extends Component {
 
     // get data from databse and change the <cryptocard> to render one card for each coin also change the cryptocard.js
     // to represent just one card
-
     return(
       <div>
   <h1> Current Market Prices</h1>
