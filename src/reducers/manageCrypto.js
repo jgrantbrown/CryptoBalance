@@ -1,3 +1,8 @@
+
+
+// NEed to construct global state so there are  portfolios with many holdings and a name
+//
+
 const initialState = {
   portfolios: [
     {name: '',
@@ -9,15 +14,10 @@ const initialState = {
       token:"betacoin",
       amount: 1,
       costbasis: "5",
-      wallet: "Betacoinbase"}
+      wallet: "Betacoinbase",
+      portfolioId: ""}
   ],
-  portfolio: [
-    {
-      token:"betacoin",
-      amount: 1,
-      costbasis: "5",
-      wallet: "Betacoinbase"}
-  ]
+  
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -25,8 +25,8 @@ export default function manageCrypto(state = initialState, action){
   switch(action.type){
     case "ADD_HOLDING":
 
-      console.log("Spread state",[...state.portfolio, action.payload])
-      return {...state, portfolio: [...state.portfolio, action.payload]}
+      console.log("Spread state",[...state.holding, action.payload])
+      return {...state, holding: [...state.holding, action.payload]}
 
     default:
       return state

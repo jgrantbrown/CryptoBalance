@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col,Card, CardImg, CardBody,
-  CardTitle, CardSubtitle} from 'reactstrap';
+import { Row} from 'reactstrap';
 import CryptoCard from './CryptoCard'
 
 
@@ -25,7 +24,7 @@ class CryptoCards extends Component {
 // Notes:
 // Use these when we have access to builindg data for each crypto price card
 // import CryptoCard from './CryptoCard';
-{/* <CryptoCard/> */}
+
 
 
 export default CryptoCards;

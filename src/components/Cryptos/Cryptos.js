@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import InputHolding from './InputHolding'
+// import InputHolding from './InputHolding'
 import CryptoCards from './CryptoCards'
-import { Table,Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Portfolio from '../Portfolios/Portfolio'
 
 
@@ -60,8 +60,8 @@ class Cryptos extends Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log("New State:", state.portfolio)
-    return { holdings: state.portfolio}
+    console.log("New State:", state.holding)
+    return { holdings: state.holding}
 }
 
 

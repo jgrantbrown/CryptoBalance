@@ -37,9 +37,11 @@ class Portfolio extends Component {
       <tbody>
 
           {this.props.holdings}
-          <p> Total: </p>
+
       </tbody>
+
     </Table>
+    <p> Total: </p>
     <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
     <br/>
     <br/>
@@ -50,7 +52,7 @@ class Portfolio extends Component {
       <div>
           A portfolio
           {showHoldings()}
-        </div>
+      </div>
 
     )
   }}
