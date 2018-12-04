@@ -1,45 +1,20 @@
 import React, { Component } from 'react';
 import { Row, Col,Card, CardImg, CardBody,
   CardTitle, CardSubtitle} from 'reactstrap';
-
+import CryptoCard from './CryptoCard'
 
 
 class CryptoCards extends Component {
   render(){
+
+    // get data from databse and change the <cryptocard> to render one card for each coin also change the cryptocard.js
+    // to represent just one card
+
     return(
       <div>
   <h1> Current Market Prices</h1>
     <Row>
-      <Col sm="4">
-      <Card  body style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-      <CardImg top width="90%" src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png" alt="Card image cap" />
-      <CardBody>
-        <CardTitle>BTC:</CardTitle>
-        <CardSubtitle>$3900</CardSubtitle>
-      </CardBody>
-    </Card>
-    </Col>
-
-    <Col sm="4">
-    <Card  body style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-    <CardImg top width="90%" src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png" alt="Card image cap" />
-    <CardBody>
-      <CardTitle>LTC:</CardTitle>
-      <CardSubtitle>$3900</CardSubtitle>
-    </CardBody>
-  </Card>
-  </Col>
-
-  <Col sm="4">
-  <Card body style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
-  <CardImg top width="90%" src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png" alt="Card image cap" />
-  <CardBody>
-    <CardTitle>ETH:</CardTitle>
-    <CardSubtitle>$3900</CardSubtitle>
-  </CardBody>
-</Card>
-</Col>
-
+      <CryptoCard />
 </Row>
 </div>
     )
