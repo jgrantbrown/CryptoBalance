@@ -13,7 +13,7 @@ class Cryptos extends Component {
       this.state = {
          dropdownOpen: false,
          showHoldings: false,
-         showAddForm: true,
+         showAddForm: false,
       };
     }
 
