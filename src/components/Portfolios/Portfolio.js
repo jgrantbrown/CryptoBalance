@@ -26,6 +26,9 @@ class Portfolio extends Component {
     const showPortfolio = () => {
       if (this.props.showHoldings === true){  return (
             <>
+            {/* NEED to have acces to back end and name of portfolio to render  */}
+            {/* {this.props.holdings.portfolio.name} */}
+            Portfolio Name
             <Table>
               <thead>
                 <tr>
@@ -50,11 +53,10 @@ class Portfolio extends Component {
           </>)
       }else{
         return( <div></div>)
-      }} 
+      }}
 
     return (
       <div>
-          A portfolio
           {showPortfolio()}
       </div>
 

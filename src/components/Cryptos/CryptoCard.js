@@ -44,7 +44,6 @@ class CryptoCard extends Component {
 
     return(
       <div>
-        <h1> Current Market Prices</h1>
             {cryptocard}
       </div>
     )

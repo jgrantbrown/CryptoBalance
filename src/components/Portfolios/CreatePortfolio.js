@@ -1,0 +1,55 @@
+import React, { Component } from 'react';
+import { Col, Form, FormGroup, Label, Input  } from 'reactstrap';
+
+class CreatePortfolio extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          name: "",
+        };
+      }
+
+    handleSubmit = e => {
+      e.preventDefault()
+      console.log(this.state)
+      // this.props.addHolding(this.state)
+
+      this.setState({
+        name: ""
+      });
+    }
+
+    handleChange = evt => {
+      this.setState({ [evt.target.name]: evt.target.value });
+      // Set up form changes
+    }
+
+
+
+    render() {
+      const showForm = (this.props.showForm) ?
+          <>
+          CREATE A Portfolio:
+          <Form onSubmit={(e)=>this.handleSubmit(e)}>
+            <FormGroup row>
+              <Label for="exampleName" sm={5}>Name</Label>
+              <Col sm={5}>
+                <Input type="text" name="name" id="exampleName"  placeholder="name placeholder" value={this.state.name} onChange={event => this.handleChange(event)} />
+              </Col>
+            </FormGroup>
+             <input type="submit" />
+         </Form>
+       </>
+
+         : <div> </div>
+
+        return (
+          <div>
+            {showForm}
+          </div>
+        )
+
+    }}
+
+  export default CreatePortfolio;

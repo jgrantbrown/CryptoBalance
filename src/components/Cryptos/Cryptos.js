@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CryptoCards from './CryptoCards'
 import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Portfolio from '../Portfolios/Portfolio'
-
+import CreatePortfolio from '../Portfolios/CreatePortfolio'
 
 class Cryptos extends Component {
 
@@ -12,7 +12,8 @@ class Cryptos extends Component {
       super(props);
       this.state = {
          dropdownOpen: false,
-         showHoldings: false
+         showHoldings: false,
+         showAddForm: true,
       };
     }
 
@@ -30,7 +31,11 @@ class Cryptos extends Component {
 }
 
 
-
+toggleAddForm = () => {
+  this.setState({
+    showAddForm: true,
+  });
+}
 
   render(){
 
@@ -55,10 +60,13 @@ class Cryptos extends Component {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Dropdown header</DropdownItem>
-            <DropdownItem >Add Portfolio</DropdownItem>
+            <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
             <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1</DropdownItem>
           </DropdownMenu>
-        </ButtonDropdown></Col>
+        </ButtonDropdown>
+        <CreatePortfolio showForm={this.state.showAddForm} />
+        </Col>
+
             <Col xs="8"><CryptoCards /></Col>
       </Row>
           <br/>

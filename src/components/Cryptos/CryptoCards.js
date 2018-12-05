@@ -10,11 +10,11 @@ class CryptoCards extends Component {
     // to represent just one card
     return(
       <div>
-  <h1> Current Market Prices</h1>
-    <Row>
-      <CryptoCard />
-</Row>
-</div>
+          <h1> Current Market Prices</h1>
+          <Row>
+            <CryptoCard />
+          </Row>
+      </div>
     )
   }
 
