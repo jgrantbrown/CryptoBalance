@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Form, FormGroup, Label, Input  } from 'reactstrap';
+import {addPortfolio} from '../../actions/holdingsactions';
+import { connect } from 'react-redux';
 
 class CreatePortfolio extends Component {
 
@@ -12,8 +14,8 @@ class CreatePortfolio extends Component {
 
     handleSubmit = e => {
       e.preventDefault()
-      console.log(this.state)
-      // this.props.addHolding(this.state)
+      console.log("Trying to add portfolio:",this.state)
+      this.props.addPortfolio(this.state)
 
       this.setState({
         name: ""
@@ -52,4 +54,4 @@ class CreatePortfolio extends Component {
 
     }}
 
-  export default CreatePortfolio;
+  export default connect(null,{addPortfolio})(CreatePortfolio);

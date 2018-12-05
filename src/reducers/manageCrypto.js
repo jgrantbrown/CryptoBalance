@@ -5,7 +5,7 @@
 
 const initialState = {
   portfolios: [
-    {name: ' Beta First Portfolio',
+    {name: ' First Portfolio hardcode from redux',
     holdings: [
       {
         token:"betacoin",
@@ -34,6 +34,10 @@ export default function manageCrypto(state = initialState, action){
 
       console.log("Spread state",[...state.holding, action.payload])
       return {...state, holding: [...state.holding, action.payload]}
+
+    case "ADD_PORTFOLIO":
+        console.log("Spread state adding portfolio",[...state.portfolios, action.payload])
+        return state
 
     default:
       return state

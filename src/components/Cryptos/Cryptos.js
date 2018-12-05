@@ -5,6 +5,7 @@ import CryptoCards from './CryptoCards'
 import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Portfolio from '../Portfolios/Portfolio'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
+import Portfolios from '../Portfolios/Portfolios'
 
 class Cryptos extends Component {
 
@@ -16,7 +17,6 @@ class Cryptos extends Component {
          showAddForm: false,
       };
     }
-
 
   toggle = () =>{
    this.setState({
@@ -61,7 +61,8 @@ toggleAddForm = () => {
           <DropdownMenu>
             <DropdownItem header>Dropdown header</DropdownItem>
             <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
-            <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1</DropdownItem>
+            <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1 HArdcoded data</DropdownItem>
+            <Portfolios />
           </DropdownMenu>
         </ButtonDropdown>
         <CreatePortfolio showForm={this.state.showAddForm} />
