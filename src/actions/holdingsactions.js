@@ -9,3 +9,13 @@ export const addHolding = (holding)=>{
     payload: holding
   }
 }
+
+// Need to add reducer and also POST data to back end 
+export const addPortfolio = (portfolio)=>{
+  console.log(portfolio)
+  debugger
+  return {
+    type: 'ADD_PORTFOLIO',
+    payload: portfolio
+  }
+}
