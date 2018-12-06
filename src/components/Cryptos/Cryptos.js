@@ -54,24 +54,28 @@ toggleAddForm = () => {
       <Container>
 
         <Row>
-            <Col xs="3"><ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            Portfolios
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Dropdown header</DropdownItem>
-            <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
-            <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1 HArdcoded data</DropdownItem>
-            <Portfolios />
-          </DropdownMenu>
-        </ButtonDropdown>
-        <CreatePortfolio showForm={this.state.showAddForm} />
-        </Col>
-
-            <Col xs="8"><CryptoCards /></Col>
+          <Col xs="3">
+            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle caret>
+                Portfolios
+              </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem header>Dropdown header</DropdownItem>
+                  <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
+                  <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1 HArdcoded data</DropdownItem>
+                  <Portfolios showHolding={this.toggleShowHoldings} />
+                </DropdownMenu>
+            </ButtonDropdown>
+            {/* THis is the form for adding new protfolio after clicking add portfolio */}
+            <CreatePortfolio showForm={this.state.showAddForm} />
+          </Col>
+          {/* Section for rendering token and pricing cards */}
+          <Col xs="8"><CryptoCards />
+          </Col>
       </Row>
           <br/>
-          <Portfolio holdings={holdingslist} showHoldings={this.state.showHoldings} />
+          {/* Will render the holdings of a particular portfolio */}
+      <Portfolio holdings={holdingslist} showHoldings={this.state.showHoldings} />
       </Container>
     );
   }

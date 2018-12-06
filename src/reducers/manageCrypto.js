@@ -2,25 +2,18 @@
 
 const initialState = {
   portfolios: [
-    {name: ' First Portfolio hardcode from redux',
+    {name: ' ',
     holdings: [
       {
-        token:"betacoin",
-        amount: 1,
-        costbasis: "5",
-        wallet: "Betacoinbase",
+        token:"",
+        amount: 0,
+        costbasis: "",
+        wallet: "",
         portfolioId: ""}
     ]}
   ],
 
-  holding: [
-    {
-      token:"betacoin",
-      amount: 1,
-      costbasis: "5",
-      wallet: "Betacoinbase",
-      portfolioId: ""}
-  ],
+  holding: [],
 }
 
 export default function manageCrypto(state = initialState, action){

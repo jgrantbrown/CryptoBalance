@@ -18,13 +18,13 @@ class Portfolios extends Component {
 
 
   render() {
-    const portfoliosAdded = this.state.portfolios.map((portfolio, index) => {
-    return <DropdownItem key={index} onClick={this.toggleShowHoldings} > {portfolio.name}</DropdownItem>
+    const portfolioAdded = this.state.portfolios.map((portfolio, index) => {
+    return <DropdownItem key={index} onClick={this.props.showHolding} > {portfolio.name}</DropdownItem>
   })
 
     return (
       <div>
-        {portfoliosAdded}
+        {portfolioAdded}
       </div>
 
     )
