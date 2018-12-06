@@ -16,7 +16,6 @@ class CreatePortfolio extends Component {
       e.preventDefault()
       console.log("Trying to add portfolio:",this.state)
       this.props.addPortfolio(this.state)
-
       this.setState({
         name: ""
       });

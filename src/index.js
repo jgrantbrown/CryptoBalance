@@ -8,10 +8,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import manageCrypto from './reducers/manageCrypto';
 // ADD REDUX
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 // TO BE DETERMINED NAME OF REDUCERS
-const store = createStore(manageCrypto);
+const store = createStore(manageCrypto, applyMiddleware(thunk));
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
