@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 // import InputHolding from './InputHolding'
 import CryptoCards from './CryptoCards'
 import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import Portfolio from '../Portfolios/Portfolio'
+import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
+import { getHoldings } from '../../actions/holdingsactions';
+
 
 class Cryptos extends Component {
 
@@ -19,12 +21,18 @@ class Cryptos extends Component {
     }
 
   toggle = () =>{
+
    this.setState({
      dropdownOpen: !this.state.dropdownOpen
    });
  }
 
- toggleShowHoldings = () =>{
+
+
+ toggleShowHoldings = (portfolioID) =>{
+
+    getHoldings(portfolioID)
+    // AFTER THE CALL TO getHoldings THIS SHOULD DISPATCH ?
    // Create action/reducer to ge the holdings for this portfolio
   this.setState({
     showHoldings: true,
@@ -63,7 +71,7 @@ toggleAddForm = () => {
                 <DropdownMenu>
                   <DropdownItem header>Dropdown header</DropdownItem>
                   <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
-                  <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1 HArdcoded data</DropdownItem>
+                  {/* <DropdownItem onClick={this.toggleShowHoldings}>Portfolio 1 HArdcoded data</DropdownItem> */}
                   <Portfolios showHolding={this.toggleShowHoldings} />
                 </DropdownMenu>
             </ButtonDropdown>
@@ -76,7 +84,9 @@ toggleAddForm = () => {
       </Row>
           <br/>
           {/* Will render the holdings of a particular portfolio */}
-      <Portfolio holdings={holdingslist} showHoldings={this.state.showHoldings} />
+      <Holdings
+        // holdings={holdingslist}
+        showHoldings={this.state.showHoldings} />
       </Container>
     );
   }
@@ -88,6 +98,6 @@ const mapStateToProps = (state) => {
 }
 
 
-  export default connect(mapStateToProps)(Cryptos);
+  export default connect(mapStateToProps, {getHoldings} )(Cryptos);
 
   // NOTES: Need to grab the specfic portfolio and Id to pass the holdings and be able to display on click of that portfolio

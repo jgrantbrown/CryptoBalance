@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
 
-class Portfolio extends Component {
+class Holdings extends Component {
 
   constructor(props) {
       super(props);
@@ -21,14 +21,13 @@ class Portfolio extends Component {
   }
 
   render() {
-    console.log("these props for Portfolio",this.props)
+    console.log("these props for Holdings",this.props)
 
     const showPortfolio = () => {
       if (this.props.showHoldings === true){  return (
             <>
             {/* NEED to have acces to back end and name of portfolio to render  */}
             {/* {this.props.holdings.portfolio.name} */}
-            Portfolio Name
             <Table>
               <thead>
                 <tr>
@@ -62,4 +61,4 @@ class Portfolio extends Component {
     )
   }}
 
-  export default Portfolio;
+  export default Holdings;

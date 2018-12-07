@@ -4,15 +4,17 @@ const initialState = {
   portfolios: [
     {name: ' ',
     holdings: [
-      
+
     ]}
   ],
-  holding: [  {
-      token:"",
-      amount: 0,
-      costbasis: "",
-      wallet: "",
-      portfolioId: ""}],
+  holding: [
+  // {
+  //     token:"",
+  //     amount: 0,
+  //     costbasis: "",
+  //     wallet: "",
+  //     portfolioId: ""}
+],
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -25,6 +27,11 @@ export default function manageCrypto(state = initialState, action){
     case "ADD_PORTFOLIO":
         console.log("Spread state adding portfolio",[...state.portfolios, action.payload])
         return {...state, portfolios: [...state.portfolios, action.payload]}
+
+    case 'GET_HOLDINGS':
+        console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
+        debugger
+        return state
 
     default:
       return state
