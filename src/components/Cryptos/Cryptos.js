@@ -25,6 +25,7 @@ class Cryptos extends Component {
  }
 
  toggleShowHoldings = () =>{
+   // Create action/reducer to ge the holdings for this portfolio
   this.setState({
     showHoldings: true,
   });

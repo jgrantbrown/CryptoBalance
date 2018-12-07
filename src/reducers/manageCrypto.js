@@ -4,16 +4,15 @@ const initialState = {
   portfolios: [
     {name: ' ',
     holdings: [
-      {
-        token:"",
-        amount: 0,
-        costbasis: "",
-        wallet: "",
-        portfolioId: ""}
+      
     ]}
   ],
-
-  holding: [],
+  holding: [  {
+      token:"",
+      amount: 0,
+      costbasis: "",
+      wallet: "",
+      portfolioId: ""}],
 }
 
 export default function manageCrypto(state = initialState, action){

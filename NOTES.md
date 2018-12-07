@@ -1,19 +1,25 @@
-
-Next steps:
-Crypto cards should have correct logos
-Crypto cards should update with price from API
-
-Portfolio:
-Should have a subtotal for all holdings
-Only include specfic coins(Drop down menu on form)
-Should be able to remove  and or update a holding
-
-Portfilios drop down should have users portfolios to choose From
-login?
+NEXT STEPS:
+  add holdings via form to specific portfolio on back end through action
+  render holdings when clicking on portfolio name
+  Crypto cards should have correct logos
+  Crypto cards should update with price from API
 
 NEED:
-HOme page with a create portfolio button?
+  Router
+
+Portfolio:
+  Should have a subtotal for all holdings
+  Only include specfic coins(Drop down menu on form)
+  Should be able to remove  and or update a holding
+
+WANTS:
+  login?
   (include a name for user)
-Router
-API call from rails
-Persist some data!!
+
+******************************************************************************
+ITEMS COMPLETED:
+  [X] Portfilios drop down should have users portfolios to choose From
+  [x] API call from rails
+  [X] Persist some data!!
+  [X]  Home page with a create portfolio button?
+******************************************************************************
