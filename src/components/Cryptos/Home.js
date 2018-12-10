@@ -6,7 +6,7 @@ import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, Dropd
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
-import { getHoldings } from '../../actions/holdingsactions';
+// import { getHoldings} from '../../actions/holdingsactions';
 
 
 class Cryptos extends Component {
@@ -17,28 +17,27 @@ class Cryptos extends Component {
          dropdownOpen: false,
          showHoldings: false,
          showAddForm: false,
+         currentPortfolio: 0,
       };
     }
 
   toggle = () =>{
-
    this.setState({
      dropdownOpen: !this.state.dropdownOpen
    });
  }
 
-
-
  toggleShowHoldings = (portfolioID) =>{
 
-    getHoldings(portfolioID)
+   // getHoldings(portfolioID)
     // AFTER THE CALL TO getHoldings THIS SHOULD DISPATCH ?
    // Create action/reducer to ge the holdings for this portfolio
   this.setState({
     showHoldings: true,
+    currentPortfolio: portfolioID
   });
-}
 
+}
 
 toggleAddForm = () => {
   this.setState({
@@ -86,7 +85,8 @@ toggleAddForm = () => {
           {/* Will render the holdings of a particular portfolio */}
       <Holdings
         // holdings={holdingslist}
-        showHoldings={this.state.showHoldings} />
+        showHoldings={this.state.showHoldings}
+        currentPortfolio={this.state.currentPortfolio} />
       </Container>
     );
   }
@@ -98,6 +98,6 @@ const mapStateToProps = (state) => {
 }
 
 
-  export default connect(mapStateToProps, {getHoldings} )(Cryptos);
+  export default connect(mapStateToProps )(Cryptos);
 
   // NOTES: Need to grab the specfic portfolio and Id to pass the holdings and be able to display on click of that portfolio

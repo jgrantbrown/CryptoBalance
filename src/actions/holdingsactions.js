@@ -13,20 +13,11 @@ export const postPortfolio = (url, data)=>{
   .catch(error => console.error('Error:', error));
 }
 
-// FETCH REQUEST FOR HOLDINGS OF PORTFOLIO
-// SETUP ACTION AND SEND TO REDUCER TO RETRIEVE THE HOLDINGS OF A PORTFOLIO
-export const apiHolding = (url) => {
-  console.log("getHolding data:", url)
-  debugger
-  return fetch(url)
-  .then(response => console.log("RESPONSE FROM API:",response.json()))
-  .catch(error => console.error('Error:', error));
-}
+
 
 // Need to add reducer and also POST data to back end
 export const addPortfolio = (portfolio) => {
   console.log("Action addportfolio:", portfolio)
-
   return dispatch => {
     postPortfolio("http://localhost:3001/portfolios", portfolio)
     .then(response => dispatch(  {
@@ -34,7 +25,6 @@ export const addPortfolio = (portfolio) => {
         payload: response
       }))
   }
-
 }
 
 export const addHolding = (holding) => {
@@ -45,17 +35,26 @@ export const addHolding = (holding) => {
 }
 
 
-export const getHoldings = (portfolioID) => {
-  console.log("getHoldings action:", portfolioID)
-  console.log("URL to use:",`http://localhost:3001/portfolios/` + portfolioID + `/holdings`)
+// MOVED THIS WORK INTO THE HOLDINGS AS A COMPONET WILL MOUNT
+// FETCH REQUEST FOR HOLDINGS OF PORTFOLIO
+// SETUP ACTION AND SEND TO REDUCER TO RETRIEVE THE HOLDINGS OF A PORTFOLIO
+// export const apiHolding = (url) => {
+//   console.log("getHolding data:", url)
+//   debugger
+//   return fetch(url)
+//   .then(response => console.log("RESPONSE FROM API:",response.json()))
+//   .catch(error => console.error('Error:', error));
+// }
 
-  return dispatch => {
-    // AM not hitting this dispatch?
-    apiHolding(`http://localhost:3001/portfolios/` + portfolioID + `/holdings`)
-    .then(response => dispatch(  {
-        type: 'GET_HOLDINGS',
-        payload: response
-      }))
-  }
-
-}
+// export const getHoldings = (portfolioID) => {
+//   console.log("getHoldings action:", portfolioID)
+//   console.log("URL to use:",`http://localhost:3001/portfolios/` + portfolioID + `/holdings`)
+//   return dispatch => {
+//     // AM not hitting this dispatch?
+//     apiHolding("http://localhost:3001/portfolios/" + portfolioID + "/holdings")
+//     .then(response => dispatch(  {
+//         type: 'GET_HOLDINGS',
+//         payload: response
+//       }))
+//   }
+// }
