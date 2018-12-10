@@ -34,6 +34,17 @@ export const addHolding = (holding) => {
   }
 }
 
+export const setHoldings = (holdings) => {
+  console.log("setHoldings action:", holdings)
+  return {
+    type: 'SET_HOLDINGS',
+        payload: holdings
+      }
+  }
+
+
+
+
 
 // MOVED THIS WORK INTO THE HOLDINGS AS A COMPONET WILL MOUNT
 // FETCH REQUEST FOR HOLDINGS OF PORTFOLIO

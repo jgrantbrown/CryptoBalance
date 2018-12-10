@@ -1,20 +1,8 @@
 // NEed to construct global state so there are  portfolios with many holdings and a name
 
 const initialState = {
-  portfolios: [
-    {name: ' ',
-    holdings: [
-
-    ]}
-  ],
-  holding: [
-  // {
-  //     token:"",
-  //     amount: 0,
-  //     costbasis: "",
-  //     wallet: "",
-  //     portfolioId: ""}
-],
+  portfolios: [],
+  holding: [],
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -28,10 +16,10 @@ export default function manageCrypto(state = initialState, action){
         console.log("Spread state adding portfolio",[...state.portfolios, action.payload])
         return {...state, portfolios: [...state.portfolios, action.payload]}
 
-    case 'GET_HOLDINGS':
+    case 'SET_HOLDINGS':
         console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
         debugger
-        return state
+        return {...state, portfolios: [state.portfolios.holdings, action.payload]}
 
     default:
       return state

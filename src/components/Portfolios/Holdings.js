@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
+import {setHoldings} from '../../actions/holdingsactions';
+import { connect } from 'react-redux';
 
 class Holdings extends Component {
 
@@ -8,7 +10,7 @@ class Holdings extends Component {
       super(props);
       this.state = {
         openForm: false,
-        holdings: []
+        showHoldings: false,
       };
     }
 
@@ -16,41 +18,42 @@ class Holdings extends Component {
     e.preventDefault()
     this.setState({
       openForm: true,
-
     })
     // USe a route to rerender and expose the form
     // Render the </InputHolding>
   }
 
   componentDidMount() {
-
-  // NEed to clear previous holding from page
-    fetch("http://localhost:3001/portfolios/" +
-    this.props.currentPortfoilio + "/holdings")
-    .then(response => response.json())
-    .then(holdings => this.setState({holdings}))
+    return dispatch => {
+       // AM not hitting this dispatch?
+       fetch("http://localhost:3001/portfolios/" +
+       this.props.currentPortfoilio.id + "/holdings")
+       .then(response => dispatch({
+         type: 'SET_HOLDINGS',
+             payload: response
+           }))
+     }
   }
 
-
-
   render() {
-    console.log("these props for Holdings",this.props)
-    console.log(this.state.holdings)
-      const holdings = this.state.holdings.map((holding,index) =>
-                         <tr key={index}>
-                           <td>{holding.token}</td>
-                           <td>{holding.wallet}</td>
-                           <td>{holding.amount}</td>
-                           <td>TBD MKT basis</td>
-                           <td>TBD MKT Price</td>
-                          <td>TBD MKT VALUE</td>
-                        </ tr>)
+    console.log("these props for Holdings",this.props.currentPortfolio.holdings)
+
+    const holdings = this.props.currentPortfolio.holdings ? this.props.currentPortfolio.holdings.map((holding,index) =>
+
+                       <tr key={index}>
+                         <td>{holding.token}</td>
+                         <td>{holding.wallet}</td>
+                         <td>{holding.amount}</td>
+                         <td>TBD MKT basis</td>
+                         <td>TBD MKT Price</td>
+                        <td>TBD MKT VALUE</td>
+                      </ tr>)
+                      : console.log("NOPE")
 
     const showPortfolio = () => {
       if (this.props.showHoldings === true && this.props.currentPortfolio !== undefined){  return (
             <>
             {/* NEED to have acces to back end and name of portfolio to render  */}
-            {/* {this.props.holdings.portfolio.name} */}
             <Table>
               <thead>
                 <tr>
@@ -84,4 +87,10 @@ class Holdings extends Component {
     )
   }}
 
-  export default Holdings;
+  const mapStateToProps = (state) => {
+      console.log("New State:", state.holding)
+      return { holdings: state.holding}
+  }
+
+
+  export default connect(mapStateToProps,{setHoldings})(Holdings);
