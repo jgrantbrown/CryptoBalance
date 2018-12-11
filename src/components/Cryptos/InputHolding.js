@@ -44,7 +44,6 @@ class InputHolding extends Component {
 
   render() {
     const showForm = (this.props.visible) ?
-
         <Form onSubmit={(e)=>this.handleSubmit(e)}>
           <FormGroup row>
             <Label for="exampleAmount" sm={2}>Amount</Label>
@@ -75,7 +74,6 @@ class InputHolding extends Component {
            </FormGroup>
            <input type="submit" />
        </Form>
-
        : <div> </div>
 
       return (

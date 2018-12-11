@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 class Holdings extends Component {
 
@@ -22,7 +22,7 @@ class Holdings extends Component {
   }
 
   render() {
-    console.log("these props for Holdings",this.props.currentPortfolio.holdings)
+    console.log("these props for Holdings",this.props.holdings)
 
     const holdings = this.props.currentPortfolio.holdings ? this.props.currentPortfolio.holdings.map((holding,index) =>
                        <tr key={index}>
@@ -78,5 +78,6 @@ class Holdings extends Component {
   // }
 
 
-  export default Holdings;
+  // export default Holdings;
+    export default Holdings;
     // export default connect(mapStateToProps,{seeHoldings})(Holdings);

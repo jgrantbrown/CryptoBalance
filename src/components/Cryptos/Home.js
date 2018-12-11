@@ -5,9 +5,9 @@ import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, Dropd
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
-
+import { getHoldings} from '../../actions/holdingsactions';
 // import InputHolding from './InputHolding'
-// import { getHoldings} from '../../actions/holdingsactions';
+
 class Cryptos extends Component {
 
   constructor(props) {
@@ -17,6 +17,7 @@ class Cryptos extends Component {
          showHoldings: false,
          showAddForm: false,
          currentPortfolio: [],
+         currentPortfolioID: [],
       };
     }
 
@@ -36,8 +37,26 @@ toggleShowHoldings = (portfolio) => {
    console.log("Setting current portfolio of clicked:", portfolio)
    this.setState({
     showHoldings: true,
-    currentPortfolio: portfolio
-  });}
+    currentPortfolio: portfolio,
+    currentPortfolioID: portfolio.id,
+  });
+
+  // return dispatch =>{this.props.getHoldings(portfolio.id)
+  //    .then(response => dispatch(  {
+  //        type: 'GET_HOLDINGS',
+  //        payload: response
+  //      }))
+  //      .then (this.setState({
+  //        showHoldings: true,
+  //        currentPortfolio: portfolio,
+  //        currentPortfolioID: portfolio.id,
+  //      }));
+  //  }
+
+
+  // Call an action with the portfolio.id
+      // this.props.getHoldings(portfolio.id)
+}
 
   render(){
     return (
@@ -77,8 +96,8 @@ toggleShowHoldings = (portfolio) => {
 // SHOULD USE THIS TO PASS TO HOLDINGS COMPONENT currentPortfolio= this.props.portfolio
 const mapStateToProps = (state) => {
     console.log("New State:", state.portfolios)
-    return { portfolio: state.portfolios.holdings}
+    return { portfolio: state.currentPortfolio}
 }
 
 
-  export default connect(mapStateToProps)(Cryptos);
+  export default connect(mapStateToProps,{getHoldings})(Cryptos);

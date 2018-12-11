@@ -3,6 +3,7 @@
 const initialState = {
   currentPortfolio: [],
   portfolios: [],
+
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -18,11 +19,10 @@ export default function manageCrypto(state = initialState, action){
 
     case 'GET_HOLDINGS':
         console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
-        debugger
-        return {...state, portfolios: [state.portfolios.holdings, action.payload]}
+        return {...state, currentPortfolio: [state.holdings, action.payload.holdings]}
 
     case 'GET_PORTFOLIOS':
-            console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
+            console.log("ACTION PAYLOAD FOR Portfolios:", action.payload)
             return {...state, portfolios: action.payload}
 
     default:
