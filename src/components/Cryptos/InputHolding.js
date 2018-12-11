@@ -8,6 +8,7 @@ class InputHolding extends Component {
   constructor(props) {
       super(props);
       this.state = {
+        portfolio_id: this.props.portfolioID,
         token: "",
         amount: "",
         costbasis: "",
@@ -15,13 +16,18 @@ class InputHolding extends Component {
       };
 
     }
+    // Props available passed to component:
+    // visible={this.state.openForm}
+    // portfolioID={this.props.currentPortfolio.id}
+    //
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state)
-    this.props.addHolding(this.state)
+      // State is not update here?
+      this.props.addHolding(this.state)
 
     this.setState({
+      portfolio_id: "",
       token: "",
       amount: "",
       costbasis: "",

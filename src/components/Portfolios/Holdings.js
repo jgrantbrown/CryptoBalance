@@ -10,7 +10,6 @@ class Holdings extends Component {
       super(props);
       this.state = {
         openForm: false,
-        showHoldings: false,
       };
     }
 
@@ -23,7 +22,8 @@ class Holdings extends Component {
     // Render the </InputHolding>
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
+    console.log("THese are the current props:", this.props)
     return dispatch => {
        // AM not hitting this dispatch?
        fetch("http://localhost:3001/portfolios/" +
@@ -39,7 +39,6 @@ class Holdings extends Component {
     console.log("these props for Holdings",this.props.currentPortfolio.holdings)
 
     const holdings = this.props.currentPortfolio.holdings ? this.props.currentPortfolio.holdings.map((holding,index) =>
-
                        <tr key={index}>
                          <td>{holding.token}</td>
                          <td>{holding.wallet}</td>
@@ -48,10 +47,10 @@ class Holdings extends Component {
                          <td>TBD MKT Price</td>
                         <td>TBD MKT VALUE</td>
                       </ tr>)
-                      : console.log("NOPE")
+                      : <tr></tr>
 
     const showPortfolio = () => {
-      if (this.props.showHoldings === true && this.props.currentPortfolio !== undefined){  return (
+      if (this.props.showHoldings === true){  return (
             <>
             {/* NEED to have acces to back end and name of portfolio to render  */}
             <Table>
@@ -73,7 +72,7 @@ class Holdings extends Component {
             <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
             <br/>
             <br/>
-            <InputHolding visible={this.state.openForm} />
+            <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
           </>)
       }else{
         return( <div></div>)

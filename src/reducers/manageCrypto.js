@@ -16,7 +16,7 @@ export default function manageCrypto(state = initialState, action){
         console.log("Spread state adding portfolio",[...state.portfolios, action.payload])
         return {...state, portfolios: [...state.portfolios, action.payload]}
 
-    case 'SET_HOLDINGS':
+    case 'SEE_HOLDINGS':
         console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
         debugger
         return {...state, portfolios: [state.portfolios.holdings, action.payload]}
