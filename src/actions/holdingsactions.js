@@ -51,3 +51,15 @@ export const addHolding = (holding) => {
       }))
   }
 }
+
+
+
+export const getPortfolios = () =>{
+  return dispatch => {fetch('http://localhost:3001/portfolios')
+  .then(response => response.json())
+  .then(portfolios => dispatch({
+    type: "GET_PORTFOLIOS",
+    payload: portfolios
+  }))
+}
+}

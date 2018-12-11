@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import CryptoCards from './CryptoCards'
 import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
+
 // import InputHolding from './InputHolding'
 // import { getHoldings} from '../../actions/holdingsactions';
 class Cryptos extends Component {
@@ -49,8 +50,8 @@ toggleShowHoldings = (portfolio) => {
                 Portfolios
               </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem header>Dropdown header</DropdownItem>
-                  <DropdownItem  onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
+                  <DropdownItem  header>Dropdown header</DropdownItem>
+                  <DropdownItem   onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
                   {/* THis renders a drop down list of the porfolios clcikable  */}
                   <Portfolios  toggleShowHoldings={this.toggleShowHoldings}/>
                 </DropdownMenu>
@@ -73,4 +74,11 @@ toggleShowHoldings = (portfolio) => {
   }
 };
 
-  export default Cryptos;
+// SHOULD USE THIS TO PASS TO HOLDINGS COMPONENT currentPortfolio= this.props.portfolio
+const mapStateToProps = (state) => {
+    console.log("New State:", state.portfolios)
+    return { portfolio: state.portfolios.holdings}
+}
+
+
+  export default connect(mapStateToProps)(Cryptos);

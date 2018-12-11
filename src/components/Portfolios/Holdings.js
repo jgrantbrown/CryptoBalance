@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class Holdings extends Component {
 
@@ -72,11 +72,11 @@ class Holdings extends Component {
     )
   }}
 
-  const mapStateToProps = (state) => {
-      console.log("New State:", state.portfolios.holdings)
-      return { holdings: state.portfolios.holdings}
-  }
+  // const mapStateToProps = (state) => {
+  //     console.log("New State:", state.portfolios.holdings)
+  //     return { holdings: state.portfolios.holdings}
+  // }
 
 
-  export default connect(mapStateToProps)(Holdings);
+  export default Holdings;
     // export default connect(mapStateToProps,{seeHoldings})(Holdings);
