@@ -13,11 +13,9 @@ export const postPortfolio = (url, data)=>{
   .catch(error => console.error('Error:', error));
 }
 
-
 // NEED TO RE WRITE THIS.
 export const postHolding = (url, data)=>{
   console.log("postHolding data:", data)
-  debugger
   return fetch(url,{
     method: 'POST',
     headers: {
@@ -29,10 +27,6 @@ export const postHolding = (url, data)=>{
   .then(response => response.json())
   .catch(error => console.error('Error:', error));
 }
-
-
-
-
 
 // Need to add reducer and also POST data to back end
 export const addPortfolio = (portfolio) => {
@@ -47,12 +41,8 @@ export const addPortfolio = (portfolio) => {
 }
 
 export const addHolding = (holding) => {
-    console.log("holding in Acton to add:", holding)
-  // Need to create a post to nested route
-  // POST   /portfolios/:portfolio_id/holdings
-  // THis is not setting right url?
+  console.log("holding in Acton to add:", holding)
   const url = "http://localhost:3001/portfolios/" + holding.portfolio_id + "/holdings"
-  console.log("URL",url)
   return dispatch => {
     postHolding(url, holding)
     .then(response => dispatch(  {
@@ -61,11 +51,3 @@ export const addHolding = (holding) => {
       }))
   }
 }
-
-export const setHoldings = (holdings) => {
-  console.log("setHoldings action:", holdings)
-  return {
-    type: 'SEE_HOLDINGS',
-        payload: holdings
-      }
-  }

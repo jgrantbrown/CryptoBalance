@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import CryptoCards from './CryptoCards'
 import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
-
 // import InputHolding from './InputHolding'
 // import { getHoldings} from '../../actions/holdingsactions';
-
 class Cryptos extends Component {
 
   constructor(props) {
@@ -75,12 +73,4 @@ toggleShowHoldings = (portfolio) => {
   }
 };
 
-const mapStateToProps = (state) => {
-    console.log("New State:", state.holding)
-    return { holdings: state.holding}
-}
-
-
-  export default connect(mapStateToProps )(Cryptos);
-
-  // NOTES: Need to grab the specfic portfolio and Id to pass the holdings and be able to display on click of that portfolio
+  export default Cryptos;

@@ -33,3 +33,29 @@ HOldings.js
 // this.props.currentPortfoilio + "/holdings")
 // .then(response => response.json())
 // .then(holdings => setHoldings(holdings))
+
+componentWillReceiveProps() {
+  // WHy does this work if I commented out the action and reducer?
+  // console.log("THese are the current props:", this.props)
+  // return dispatch => {
+  //    // AM not hitting this dispatch?
+  //    fetch("http://localhost:3001/portfolios/" +
+  //    this.props.currentPortfoilio.id + "/holdings")
+  //    .then(response => dispatch({
+  //      type: 'SEE_HOLDINGS',
+  //          payload: response
+  //        }))
+  //  }
+}
+
+
+
+HOldingactions.js
+// NOT USING CALLING DIRECTLY IN HOldings.js
+// export const seeHoldings = (holdings) => {
+//   console.log("seeHoldings action:", holdings)
+//   return {
+//     type: 'SEE_HOLDINGS',
+//         payload: holdings
+//       }
+//   }

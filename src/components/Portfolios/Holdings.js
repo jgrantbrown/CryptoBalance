@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
-import {setHoldings} from '../../actions/holdingsactions';
 import { connect } from 'react-redux';
 
 class Holdings extends Component {
@@ -20,19 +19,6 @@ class Holdings extends Component {
     })
     // USe a route to rerender and expose the form
     // Render the </InputHolding>
-  }
-
-  componentWillReceiveProps() {
-    console.log("THese are the current props:", this.props)
-    return dispatch => {
-       // AM not hitting this dispatch?
-       fetch("http://localhost:3001/portfolios/" +
-       this.props.currentPortfoilio.id + "/holdings")
-       .then(response => dispatch({
-         type: 'SET_HOLDINGS',
-             payload: response
-           }))
-     }
   }
 
   render() {
@@ -87,9 +73,10 @@ class Holdings extends Component {
   }}
 
   const mapStateToProps = (state) => {
-      console.log("New State:", state.holding)
-      return { holdings: state.holding}
+      console.log("New State:", state.portfolios.holdings)
+      return { holdings: state.portfolios.holdings}
   }
 
 
-  export default connect(mapStateToProps,{setHoldings})(Holdings);
+  export default connect(mapStateToProps)(Holdings);
+    // export default connect(mapStateToProps,{seeHoldings})(Holdings);

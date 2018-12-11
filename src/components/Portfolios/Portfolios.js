@@ -20,7 +20,7 @@ class Portfolios extends Component {
 
   render() {
 
-        console.log("Portfolios fetching:", this.state.portfolios)
+    console.log("Portfolios fetching:", this.state.portfolios)
         // showholding(portfolio.id) is passed back to hometo execute
     const portfolioList = this.state.portfolios.map((portfolio, index) => {
     return <DropdownItem key={portfolio.id}  onClick={()=>this.props.toggleShowHoldings(portfolio)} > {portfolio.name}</DropdownItem>
