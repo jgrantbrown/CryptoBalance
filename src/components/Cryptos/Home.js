@@ -18,7 +18,6 @@ class Cryptos extends Component {
            dropdownOpen: false,
            showHoldings: false,
            showAddForm: false,
-           currentPortfolio: [],
            openForm: false,
         };
       }
@@ -31,8 +30,6 @@ class Cryptos extends Component {
         // USe a route to rerender and expose the form
         // Render the </InputHolding>
       }
-
-
 
   toggle = () =>{
      this.setState({
@@ -55,7 +52,6 @@ class Cryptos extends Component {
 
     // CAN I SET STATE TO OF CURRENT PORTFOLIO TO portfolio?
     this.props.getHoldings(portfolio)
-
   }
 
   render(){
@@ -83,17 +79,14 @@ class Cryptos extends Component {
           </Col>
       </Row>
           <br/>
+
       {/* Will render the holdings of a particular portfolio */}
-      <Holdings
-        showHoldings={this.state.showHoldings}
-        currentPortfolio={this.props.currentPortfolio}
-        handleAddCoin={this.handleAddCoin}
-        />
-
-
+        <Holdings
+          showHoldings={this.state.showHoldings}
+          currentPortfolio={this.props.currentPortfolio}
+          handleAddCoin={this.handleAddCoin}
+          />
         <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
-
-
       </Container>
     );
   }
