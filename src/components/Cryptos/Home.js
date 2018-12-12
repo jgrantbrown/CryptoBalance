@@ -4,6 +4,7 @@ import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, Dropd
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
+import InputHolding from './InputHolding'
 
 // Working on addHolding
 import { connect } from 'react-redux';
@@ -18,8 +19,20 @@ class Cryptos extends Component {
            showHoldings: false,
            showAddForm: false,
            currentPortfolio: [],
+           openForm: false,
         };
       }
+
+      handleAddCoin = e => {
+        e.preventDefault()
+        this.setState({
+          openForm: true,
+        })
+        // USe a route to rerender and expose the form
+        // Render the </InputHolding>
+      }
+
+
 
   toggle = () =>{
      this.setState({
@@ -73,9 +86,14 @@ class Cryptos extends Component {
       {/* Will render the holdings of a particular portfolio */}
       <Holdings
         showHoldings={this.state.showHoldings}
-        // SHOULD USE this.props.currentPOrtfilo from map state to props?
         currentPortfolio={this.props.currentPortfolio}
+        handleAddCoin={this.handleAddCoin}
         />
+
+
+        <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
+
+
       </Container>
     );
   }

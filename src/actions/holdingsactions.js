@@ -64,9 +64,7 @@ export const getPortfolios = () =>{
 }
 }
 
-
 export const getHoldings = (portfolio) =>{
-
   const url = "http://localhost:3001/portfolios/" + portfolio.id
   return dispatch => {fetch(url)
   .then(response => response.json())

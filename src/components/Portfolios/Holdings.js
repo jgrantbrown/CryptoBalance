@@ -3,32 +3,9 @@ import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
 
 class Holdings extends Component {
-
-  constructor(props) {
-      super(props);
-      this.state = {
-        openForm: false,
-      };
-    }
-
-  handleAddCoin = e => {
-    e.preventDefault()
-    this.setState({
-      openForm: true,
-    })
-    // USe a route to rerender and expose the form
-    // Render the </InputHolding>
-  }
-
-  // PROPS passed to component:
-      // showHoldings={this.state.showHoldings}
-      // currentPortfolio={this.state.currentPortfolio}
-
   render() {
     console.log("these props for Holdings",this.props.currentPortfolio)
     // const portfolioHoldings = this.props.currentPortfoilioBeta
-
-
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
 
     const holdings = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
@@ -36,7 +13,7 @@ class Holdings extends Component {
                          <td>{holding.token}</td>
                          <td>{holding.wallet}</td>
                          <td>{holding.amount}</td>
-                         <td>TBD MKT basis</td>
+                         <td>{holding.costbasis}</td>
                          <td>TBD MKT Price</td>
                         <td>TBD MKT VALUE</td>
                       </ tr>)
@@ -62,10 +39,9 @@ class Holdings extends Component {
               </tbody>
            </Table>
             <p> Total: </p>
-            <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
-            <br/>
-            <br/>
-            <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
+            <button onClick={(e)=>this.props.handleAddCoin(e)}>Add More Hodlr</button>
+          <br/>
+          <br/>
           </>)
       }else{
         return( <div></div>)

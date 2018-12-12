@@ -4,7 +4,6 @@ import {addPortfolio} from '../../actions/holdingsactions';
 import { connect } from 'react-redux';
 
 class CreatePortfolio extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -25,8 +24,6 @@ class CreatePortfolio extends Component {
       this.setState({ [evt.target.name]: evt.target.value });
       // Set up form changes
     }
-
-
 
     render() {
       const showForm = (this.props.showForm) ?

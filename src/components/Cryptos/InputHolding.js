@@ -7,7 +7,6 @@ class InputHolding extends Component {
 
   constructor(props) {
       super(props);
-
       this.state = {
         token: "",
         amount: "",

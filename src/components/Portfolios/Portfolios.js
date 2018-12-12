@@ -11,7 +11,7 @@ class Portfolios extends Component {
     return <DropdownItem key = {portfolio.id}  onClick={()=>this.props.toggleShowHoldings(portfolio)} > {portfolio.name}</DropdownItem>
   })
 
-    return (
+  return (
       <div>
         {portfolioList}
       </div>
