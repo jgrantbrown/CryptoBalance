@@ -65,14 +65,14 @@ export const getPortfolios = () =>{
 }
 
 
-export const getHoldings = (portfolio_id) =>{
-  debugger
-  const url = "http://localhost:3001/portfolios/" + portfolio_id
+export const getHoldings = (portfolio) =>{
+
+  const url = "http://localhost:3001/portfolios/" + portfolio.id
   return dispatch => {fetch(url)
   .then(response => response.json())
-  .then(portfolios => dispatch({
+  .then(portfolio => dispatch({
     type: "GET_HOLDINGS",
-    payload: portfolios
+    payload: portfolio
   }))
 }
 }

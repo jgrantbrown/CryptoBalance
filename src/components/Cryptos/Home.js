@@ -5,38 +5,45 @@ import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 import Portfolios from '../Portfolios/Portfolios'
 
+// Working on addHolding
+import { connect } from 'react-redux';
+import {getHoldings} from '../../actions/holdingsactions';
+
 class Cryptos extends Component {
 
   constructor(props) {
-      super(props);
-      this.state = {
-         dropdownOpen: false,
-         showHoldings: false,
-         showAddForm: false,
-         currentPortfolio: [],
-      };
-    }
+        super(props);
+        this.state = {
+           dropdownOpen: false,
+           showHoldings: false,
+           showAddForm: false,
+           currentPortfolio: [],
+        };
+      }
 
   toggle = () =>{
-   this.setState({
-     dropdownOpen: !this.state.dropdownOpen
-   });
- }
+     this.setState({
+       dropdownOpen: !this.state.dropdownOpen
+     });
+   }
 
-toggleAddForm = () => {
-  this.setState({
-    showAddForm: true,
-  });
-}
+  toggleAddForm = () => {
+    this.setState({
+      showAddForm: true,
+    });
+  }
 
-toggleShowHoldings = (portfolio) => {
-   console.log("Setting current portfolio of clicked:", portfolio)
-   this.setState({
-    showHoldings: true,
-    currentPortfolio: portfolio,
-    currentPortfolioID: portfolio.id,
-  });
-}
+  toggleShowHoldings = (portfolio) => {
+     console.log("Setting current portfolio of clicked:", portfolio)
+     this.setState({
+      showHoldings: true,
+      currentPortfolio: portfolio,
+    });
+
+    // CAN I SET STATE TO OF CURRENT PORTFOLIO TO portfolio?
+    this.props.getHoldings(portfolio)
+
+  }
 
   render(){
     return (
@@ -63,15 +70,25 @@ toggleShowHoldings = (portfolio) => {
           </Col>
       </Row>
           <br/>
-          {/* Will render the holdings of a particular portfolio */}
+      {/* Will render the holdings of a particular portfolio */}
       <Holdings
         showHoldings={this.state.showHoldings}
         // SHOULD USE this.props.currentPOrtfilo from map state to props?
-        currentPortfolio={this.state.currentPortfolio}
+        currentPortfolio={this.props.currentPortfolio}
         />
       </Container>
     );
   }
 };
 
-  export default Cryptos;
+
+// Want this to update and pass to <HOldings as currentPortfolo>
+const mapStateToProps = (state) => {
+    console.log("New State in Home:", state.currentPortfolio)
+    return { currentPortfolio: state.currentPortfolio }
+}
+
+
+
+  // export default Cryptos;
+  export default connect(mapStateToProps,{getHoldings})(Cryptos);

@@ -26,10 +26,12 @@ class Holdings extends Component {
 
   render() {
     console.log("these props for Holdings",this.props.currentPortfolio)
+    // const portfolioHoldings = this.props.currentPortfoilioBeta
+
 
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
 
-    const holdings = (this.props.currentPortfolio.holdings !== undefined) ? this.props.currentPortfolio.holdings.map((holding,index) =>
+    const holdings = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
                        <tr key={index}>
                          <td>{holding.token}</td>
                          <td>{holding.wallet}</td>
@@ -76,5 +78,7 @@ class Holdings extends Component {
 
     )
   }}
+
+
 
 export default Holdings;

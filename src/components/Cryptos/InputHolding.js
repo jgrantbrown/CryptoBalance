@@ -7,8 +7,8 @@ class InputHolding extends Component {
 
   constructor(props) {
       super(props);
+
       this.state = {
-        portfolio_id: this.props.portfolioID,
         token: "",
         amount: "",
         costbasis: "",
@@ -21,14 +21,14 @@ class InputHolding extends Component {
   handleSubmit = e => {
     e.preventDefault()
       // State is not update here?
+    let data = { portfolio_id: this.props.portfolioID, ...this.state }
+    this.props.addHolding(data);
     this.setState({
-      portfolio_id: "",
       token: "",
       amount: "",
       costbasis: "",
       wallet: ""
     })
-    this.props.addHolding(this.state);
   }
 
   handleChange = evt => {
