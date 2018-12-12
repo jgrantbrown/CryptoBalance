@@ -46,10 +46,8 @@ class Cryptos extends Component {
   toggleShowHoldings = (portfolio) => {
      console.log("Setting current portfolio of clicked:", portfolio)
      this.setState({
-      showHoldings: true,
-      currentPortfolio: portfolio,
+      showHoldings: true
     });
-
     // CAN I SET STATE TO OF CURRENT PORTFOLIO TO portfolio?
     this.props.getHoldings(portfolio)
   }
