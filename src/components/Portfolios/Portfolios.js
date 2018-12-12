@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {  DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
-// import {getPortfolios} from '../../actions/holdingsactions';
 
 class Portfolios extends Component {
 
@@ -16,12 +15,11 @@ class Portfolios extends Component {
       <div>
         {portfolioList}
       </div>
-
     )
   }}
-// NEED TO GET THIS TO WORK!!
+
   const mapStateToProps = (state) => {
-      console.log("New State:", state.portfolios)
+      console.log("New State in Portfolios:", state.portfolios)
       return { portfolios: state.portfolios}
   }
 

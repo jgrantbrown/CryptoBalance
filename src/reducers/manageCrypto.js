@@ -11,6 +11,7 @@ export default function manageCrypto(state = initialState, action){
   switch(action.type){
     case "ADD_HOLDING":
       console.log("Add Holding payload", action.payload)
+      debugger
       return {...state, currentPortfolio: [ action.payload]}
 
     case "ADD_PORTFOLIO":

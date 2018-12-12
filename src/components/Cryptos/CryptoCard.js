@@ -18,6 +18,7 @@ class CryptoCard extends Component {
       </CardBody>
     </Card>
     </Col>
+
     <Col sm="4">
   <Card  body style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
   <CardImg top width="90%" src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png" alt="Card image cap" />
@@ -27,6 +28,7 @@ class CryptoCard extends Component {
   </CardBody>
 </Card>
 </Col>
+
 <Col sm="4">
 <Card  body style={{ backgroundColor: "#44014C", width: "175px", minHeight: "100px"}}>
 <CardImg top width="90%" src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png" alt="Card image cap" />
@@ -36,8 +38,6 @@ class CryptoCard extends Component {
 </CardBody>
 </Card>
 </Col>
-
-
 
   </Row>
 )

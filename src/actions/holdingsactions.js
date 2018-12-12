@@ -13,7 +13,7 @@ export const postPortfolio = (url, data)=>{
   .catch(error => console.error('Error:', error));
 }
 
-// NEED TO RE WRITE THIS.
+// POst request for adding anew Holding
 export const postHolding = (url, data)=>{
   console.log("postHolding data:", data)
   return fetch(url,{
@@ -28,7 +28,7 @@ export const postHolding = (url, data)=>{
   .catch(error => console.error('Error:', error));
 }
 
-// Need to add reducer and also POST data to back end
+// ACtion with data from post of new portfolio dispatch to reducer
 export const addPortfolio = (portfolio) => {
   console.log("Action addportfolio:", portfolio)
   return dispatch => {
@@ -40,6 +40,7 @@ export const addPortfolio = (portfolio) => {
   }
 }
 
+// ACtion with data from post of new Holding dipatch to reducer
 export const addHolding = (holding) => {
   console.log("holding in Acton to add:", holding)
   const url = "http://localhost:3001/portfolios/" + holding.portfolio_id + "/holdings"
@@ -52,6 +53,7 @@ export const addHolding = (holding) => {
   }
 }
 
+// Action for getting all lportfioliols used in APP.js
 export const getPortfolios = () =>{
   return dispatch => {fetch('http://localhost:3001/portfolios')
   .then(response => response.json())
@@ -64,7 +66,8 @@ export const getPortfolios = () =>{
 
 
 export const getHoldings = (portfolio_id) =>{
-  const url = "http://localhost:3001/portfolios/" + portfolio_id 
+  debugger
+  const url = "http://localhost:3001/portfolios/" + portfolio_id
   return dispatch => {fetch(url)
   .then(response => response.json())
   .then(portfolios => dispatch({

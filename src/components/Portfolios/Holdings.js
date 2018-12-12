@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import InputHolding from '../Cryptos/InputHolding'
-import { connect } from 'react-redux';
 
 class Holdings extends Component {
 
@@ -21,10 +20,16 @@ class Holdings extends Component {
     // Render the </InputHolding>
   }
 
-  render() {
-    console.log("these props for Holdings",this.props.holdings)
+  // PROPS passed to component:
+      // showHoldings={this.state.showHoldings}
+      // currentPortfolio={this.state.currentPortfolio}
 
-    const holdings = this.props.currentPortfolio.holdings ? this.props.currentPortfolio.holdings.map((holding,index) =>
+  render() {
+    console.log("these props for Holdings",this.props.currentPortfolio)
+
+    const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
+
+    const holdings = (this.props.currentPortfolio.holdings !== undefined) ? this.props.currentPortfolio.holdings.map((holding,index) =>
                        <tr key={index}>
                          <td>{holding.token}</td>
                          <td>{holding.wallet}</td>
@@ -38,7 +43,7 @@ class Holdings extends Component {
     const showPortfolio = () => {
       if (this.props.showHoldings === true){  return (
             <>
-            {/* NEED to have acces to back end and name of portfolio to render  */}
+            {portfolioName}
             <Table>
               <thead>
                 <tr>
@@ -72,12 +77,4 @@ class Holdings extends Component {
     )
   }}
 
-  // const mapStateToProps = (state) => {
-  //     console.log("New State:", state.portfolios.holdings)
-  //     return { holdings: state.portfolios.holdings}
-  // }
-
-
-  // export default Holdings;
-    export default Holdings;
-    // export default connect(mapStateToProps,{seeHoldings})(Holdings);
+export default Holdings;
