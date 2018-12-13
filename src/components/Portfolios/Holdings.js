@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import InputHolding from '../Cryptos/InputHolding'
+// import InputHolding from '../Cryptos/InputHolding'
 
 class Holdings extends Component {
   render() {

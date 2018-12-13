@@ -4,8 +4,6 @@ import CryptoCard from './CryptoCard'
 
 
 class CryptoCards extends Component {
-
-
   render(){
     // get data from databse and change the <cryptocard> to render one card for each coin also change the cryptocard.js
     // to represent just one card

@@ -4,17 +4,25 @@ import './App.css';
 import {getPortfolios} from './actions/holdingsactions';
 import { connect } from 'react-redux';
 
+import {getBTC} from './actions/cryptoactions';
+import {getLTC} from './actions/cryptoactions';
+import {getETH} from './actions/cryptoactions';
+
+
 class App extends Component {
 
   componentDidMount() {
     this.props.getPortfolios()
+    this.props.getBTC()
+    this.props.getETH()
+    this.props.getLTC()
   }
 
   render() {
     const pStyle =
     {
            padding: 10,
-           margin: 30,
+           margin: 10,
            backgroundColor: "orange",
            color: "#333",
            display: "inline-block",
@@ -26,19 +34,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p style={pStyle} >Crypto Price and Portfolio Analysis </p>
-          <Home />
+
         </header>
+        <div className="Body-container">
+        <Home />
+        </div>
       </div>
     );
   }
 }
 
-// / NEED TO GET THIS TO WORK!!
-//   const mapStateToProps = (state) => {
-//       console.log("New State:", state.portfolios)
-//       return { portfolios: state.portfolios}
-//   }
-//
 
-
-  export default connect(null,{getPortfolios})(App);
+  export default connect(null,{getPortfolios, getBTC, getLTC, getETH})(App);

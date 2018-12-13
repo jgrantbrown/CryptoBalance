@@ -46,7 +46,7 @@ class Cryptos extends Component {
   toggleShowHoldings = (portfolio) => {
      console.log("Setting current portfolio of clicked:", portfolio)
      this.setState({
-      showHoldings: true
+      showHoldings: true,
     });
     // CAN I SET STATE TO OF CURRENT PORTFOLIO TO portfolio?
     this.props.getHoldings(portfolio)
@@ -93,7 +93,7 @@ class Cryptos extends Component {
 
 // Want this to update and pass to <HOldings as currentPortfolo>
 const mapStateToProps = (state) => {
-    console.log("New State in Home:", state.currentPortfolio)
+    console.log("New State in Home:", state)
     return { currentPortfolio: state.currentPortfolio }
 }
 
