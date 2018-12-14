@@ -5,7 +5,7 @@ import { Table } from 'reactstrap';
 class Holdings extends Component {
   render() {
     console.log("these props for Holdings",this.props.currentPortfolio)
-    // const portfolioHoldings = this.props.currentPortfoilioBeta
+
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
 
     const holdings = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
@@ -54,7 +54,5 @@ class Holdings extends Component {
 
     )
   }}
-
-
 
 export default Holdings;

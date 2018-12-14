@@ -9,8 +9,8 @@ import InputHolding from './InputHolding'
 // Working on addHolding
 import { connect } from 'react-redux';
 import {getHoldings} from '../../actions/holdingsactions';
-
-import { Route } from 'react-router-dom';
+// 
+// import { Route} from 'react-router-dom';
 
 
 class Cryptos extends Component {
@@ -66,7 +66,7 @@ class Cryptos extends Component {
                 Portfolios
               </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem  header>Dropdown header</DropdownItem>
+                  <DropdownItem  header>Choose or Add</DropdownItem>
                   <DropdownItem   onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
                   {/* THis renders a drop down list of the porfolios clcikable  */}
                   <Portfolios  toggleShowHoldings={this.toggleShowHoldings}/>
