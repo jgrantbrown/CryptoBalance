@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {  DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 class Portfolios extends Component {
 
@@ -8,7 +9,7 @@ class Portfolios extends Component {
     console.log("Portfolios fetching:", this.props.portfolios)
         // showholding(portfolio.id) is passed back to home to execute
     const portfolioList = this.props.portfolios.map((portfolio, index) => {
-    return <DropdownItem key = {portfolio.id}  onClick={()=>this.props.toggleShowHoldings(portfolio)} > {portfolio.name}</DropdownItem>
+    return <DropdownItem  key = {portfolio.id}  onClick={()=>this.props.toggleShowHoldings(portfolio)} > <Link to={`/${portfolio.name}`}>{portfolio.name}</Link></DropdownItem>
   })
 
   return (

@@ -11,14 +11,22 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
+// USING for routing
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
 // TO BE DETERMINED NAME OF REDUCERS
 const store = createStore(manageCrypto, applyMiddleware(thunk));
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <Provider store={store} >
-    <App />
-  </Provider>, rootElement);
+
+    <Provider store={store} >
+      <Router>
+          <Route path="/" component={App} />
+      </Router>
+    </Provider>
+  , rootElement);
 
 
 // If you want your app to work offline and load faster, you can change

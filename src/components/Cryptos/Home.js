@@ -10,6 +10,9 @@ import InputHolding from './InputHolding'
 import { connect } from 'react-redux';
 import {getHoldings} from '../../actions/holdingsactions';
 
+import { Route } from 'react-router-dom';
+
+
 class Cryptos extends Component {
 
   constructor(props) {
@@ -78,12 +81,12 @@ class Cryptos extends Component {
       </Row>
           <br/>
 
-      {/* Will render the holdings of a particular portfolio */}
         <Holdings
           showHoldings={this.state.showHoldings}
           currentPortfolio={this.props.currentPortfolio}
           handleAddCoin={this.handleAddCoin}
           />
+
         <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
       </Container>
     );
