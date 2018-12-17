@@ -8,10 +8,6 @@ import {getBTC} from './actions/cryptoactions';
 import {getLTC} from './actions/cryptoactions';
 import {getETH} from './actions/cryptoactions';
 
-// import Navigation from './components/Navigation/Navigation'
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 class App extends Component {
 
   componentDidMount() {
@@ -45,18 +41,10 @@ class App extends Component {
         </header>
         <div className="Body-container">
         <Home />
-        <Route exact path="/:portfolio" component={holdings} />
-
         </div>
       </div>
     );
   }
 }
-
-// EXPLAIN THIS USEAGE?
-const holdings = ({match}) => (
-  <div></div>
-)
-
 
   export default connect(null,{getPortfolios, getBTC, getLTC, getETH})(App);

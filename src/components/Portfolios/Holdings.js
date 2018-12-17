@@ -20,8 +20,8 @@ class Holdings extends Component {
                       : <tr></tr>
 
     const showPortfolio = () => {
-      if (this.props.showHoldings === true){  return (
-            <>
+     if (this.props.showHoldings === true){  return (
+        <>
             {portfolioName}
             <Table>
               <thead>
@@ -45,8 +45,9 @@ class Holdings extends Component {
           </>)
       }else{
         return( <div></div>)
-      }}
-
+      }
+    }
+    
     return (
       <div>
           {showPortfolio()}

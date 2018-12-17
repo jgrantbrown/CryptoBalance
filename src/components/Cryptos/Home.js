@@ -9,8 +9,8 @@ import InputHolding from './InputHolding'
 // Working on addHolding
 import { connect } from 'react-redux';
 import {getHoldings} from '../../actions/holdingsactions';
-// 
-// import { Route} from 'react-router-dom';
+//
+import { Route } from 'react-router-dom';
 
 
 class Cryptos extends Component {
@@ -56,6 +56,16 @@ class Cryptos extends Component {
   }
 
   render(){
+    const holdings = () => {
+      return (
+        <div>
+          <Holdings
+            showHoldings={this.state.showHoldings}
+            currentPortfolio={this.props.currentPortfolio}
+            handleAddCoin={this.handleAddCoin} />
+        </div>)
+    }
+
     return (
       <Container>
 
@@ -81,11 +91,12 @@ class Cryptos extends Component {
       </Row>
           <br/>
 
-        <Holdings
+        {/* <Holdings
           showHoldings={this.state.showHoldings}
           currentPortfolio={this.props.currentPortfolio}
           handleAddCoin={this.handleAddCoin}
-          />
+          /> */}
+          <Route exact path="/:portfolio" component={holdings} />
 
         <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
       </Container>
@@ -93,14 +104,11 @@ class Cryptos extends Component {
   }
 };
 
-
-// Want this to update and pass to <HOldings as currentPortfolo>
+// update and pass to <HOldings as currentPortfolo>
 const mapStateToProps = (state) => {
     console.log("New State in Home:", state)
     return { currentPortfolio: state.currentPortfolio }
 }
-
-
 
   // export default Cryptos;
   export default connect(mapStateToProps,{getHoldings})(Cryptos);
