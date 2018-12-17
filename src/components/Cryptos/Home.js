@@ -14,7 +14,6 @@ import { Route } from 'react-router-dom';
 
 
 class Cryptos extends Component {
-
   constructor(props) {
         super(props);
         this.state = {
@@ -68,7 +67,6 @@ class Cryptos extends Component {
 
     return (
       <Container>
-
         <Row>
           <Col xs="3">
             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -90,25 +88,16 @@ class Cryptos extends Component {
           </Col>
       </Row>
           <br/>
-
-        {/* <Holdings
-          showHoldings={this.state.showHoldings}
-          currentPortfolio={this.props.currentPortfolio}
-          handleAddCoin={this.handleAddCoin}
-          /> */}
           <Route exact path="/:portfolio" component={holdings} />
-
         <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
       </Container>
     );
   }
 };
-
-// update and pass to <HOldings as currentPortfolo>
-const mapStateToProps = (state) => {
-    console.log("New State in Home:", state)
-    return { currentPortfolio: state.currentPortfolio }
-}
-
+  // update and pass to <HOldings as currentPortfolo>
+  const mapStateToProps = (state) => {
+      console.log("New State in Home:", state)
+      return { currentPortfolio: state.currentPortfolio }
+    }
   // export default Cryptos;
-  export default connect(mapStateToProps,{getHoldings})(Cryptos);
+export default connect(mapStateToProps,{getHoldings})(Cryptos);
