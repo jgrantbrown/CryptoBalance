@@ -1,6 +1,6 @@
 // FETCH "POST" REQUEST FOR  creating portfolio
 export const postPortfolio = (url, data)=>{
-  console.log("postPorfolio data:", data)
+  // console.log("postPorfolio data:", data)
   return fetch(url,{
     method: 'POST',
     headers: {
@@ -15,7 +15,7 @@ export const postPortfolio = (url, data)=>{
 
 // POst request for adding anew Holding
 export const postHolding = (url, data)=>{
-  console.log("postHolding data:", data)
+  // console.log("postHolding data:", data)
   return fetch(url,{
     method: 'POST',
     headers: {
@@ -30,7 +30,7 @@ export const postHolding = (url, data)=>{
 
 // ACtion with data from post of new portfolio dispatch to reducer
 export const addPortfolio = (portfolio) => {
-  console.log("Action addportfolio:", portfolio)
+  // console.log("Action addportfolio:", portfolio)
   return dispatch => {
     postPortfolio("http://localhost:3001/portfolios", portfolio)
     .then(response => dispatch(  {
@@ -42,7 +42,7 @@ export const addPortfolio = (portfolio) => {
 
 // ACtion with data from post of new Holding dipatch to reducer
 export const addHolding = (holding) => {
-  console.log("holding in Acton to add:", holding)
+  // console.log("holding in Acton to add:", holding)
   const url = "http://localhost:3001/portfolios/" + holding.portfolio_id + "/holdings"
   return dispatch => {
     postHolding(url, holding)

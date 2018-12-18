@@ -13,7 +13,7 @@ class CreatePortfolio extends Component {
 
     handleSubmit = e => {
       e.preventDefault()
-      console.log("Trying to add portfolio:",this.state)
+      // console.log("Trying to add portfolio:",this.state)
       this.props.addPortfolio(this.state)
       this.setState({
         name: ""

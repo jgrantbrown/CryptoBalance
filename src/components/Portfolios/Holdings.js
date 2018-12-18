@@ -5,7 +5,7 @@ import { Table } from 'reactstrap';
 
 class Holdings extends Component {
   render() {
-    console.log("these props for Holdings",this.props.currentPortfolio)
+    // console.log("these props for Holdings",this.props.currentPortfolio)
 
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
 
@@ -51,7 +51,7 @@ class Holdings extends Component {
 
     return (
       <div>
-    
+
           {showPortfolio()}
       </div>
 

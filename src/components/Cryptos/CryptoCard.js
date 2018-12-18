@@ -30,7 +30,7 @@ class CryptoCard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("New State in Crypto:", state.cryptos)
+    // console.log("New State in Crypto:", state.cryptos)
     return { cryptos: state.cryptos }
 }
 

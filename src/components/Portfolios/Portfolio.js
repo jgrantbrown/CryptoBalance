@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 class Portfolio extends Component {
 
   render() {
-    console.log("Portfolio fetching:", this.props.portfolios)
+    // console.log("Portfolio fetching:", this.props.portfolios)
         // showholding(portfolio.id) is passed back to home to execute
     const portfolioList = this.props.portfolios.map((portfolio, index) => {
 
@@ -30,7 +30,7 @@ class Portfolio extends Component {
   }}
 
   const mapStateToProps = (state) => {
-      console.log("New State in Portfolios:", state.portfolios)
+      // console.log("New State in Portfolios:", state.portfolios)
       return { portfolios: state.portfolios}
   }
 

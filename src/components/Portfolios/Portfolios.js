@@ -40,7 +40,7 @@ class Portfolios extends Component {
     }
 
     toggleShowHoldings = (portfolio) => {
-       console.log("Setting current portfolio of clicked:", portfolio)
+       // console.log("Setting current portfolio of clicked:", portfolio)
        this.setState({
         showHoldings: true,
       });
@@ -70,7 +70,7 @@ class Portfolios extends Component {
   }}
 
   const mapStateToProps = (state) => {
-      console.log("Portfolios:", state.portfolios)
+      // console.log("Portfolios:", state.portfolios)
       return { portfolios: state.portfolios}
   }
 
