@@ -1,5 +1,22 @@
 
 List of legacy code I used for reference and noted file name
+NAvigation.js
+Want drop down for navigation
+<p style={navstyle}>  <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret>
+            Portfolios
+          </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem  header>Choose or Add</DropdownItem>
+              <DropdownItem   onClick={this.toggleAddForm}>Add Portfolio</DropdownItem>
+              {/* THis renders a drop down list of the porfolios clcikable  */}
+              <Portfolios  toggleShowHoldings={this.toggleShowHoldings}/>
+            </DropdownMenu>
+        </ButtonDropdown>
+</p>
+
+
+
 
 Home.js
 
