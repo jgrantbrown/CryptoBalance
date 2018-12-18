@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 // import InputHolding from '../Cryptos/InputHolding'
 
+
 class Holdings extends Component {
   render() {
     console.log("these props for Holdings",this.props.currentPortfolio)
@@ -47,9 +48,10 @@ class Holdings extends Component {
         return( <div></div>)
       }
     }
-    
+
     return (
       <div>
+    
           {showPortfolio()}
       </div>
 

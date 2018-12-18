@@ -30,14 +30,10 @@ class HoldingsView extends Component {
     )
   }}
 
-
-
   const mapStateToProps = (state) => {
       console.log("New State in Home:", state)
       return { currentPortfolio: state.currentPortfolio }
   }
-
-
 
     // export default Cryptos;
     export default connect(mapStateToProps,{getHoldings})(HoldingsView);

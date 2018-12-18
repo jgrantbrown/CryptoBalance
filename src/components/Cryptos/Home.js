@@ -89,7 +89,7 @@ class Cryptos extends Component {
       </Row>
           <br/>
           <Route exact path="/:portfolio" component={holdings} />
-        <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
+          <InputHolding visible={this.state.openForm} portfolioID={this.props.currentPortfolio.id} />
       </Container>
     );
   }

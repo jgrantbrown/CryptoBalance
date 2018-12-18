@@ -7,7 +7,7 @@ import About from '../Navigation/About'
 
 // import { connect } from 'react-redux';
 // import {getHoldings} from '../../actions/holdingsactions';
-
+// import './Navigation.css'
 
 class Navigation extends Component {
 
@@ -26,42 +26,45 @@ class Navigation extends Component {
         </div>)
     }
 
-
     const navstyle ={
+
       textDecoration: 'none',
       color: 'black',
-      padding: '10',
-      margin: '10',
+      padding: '10px',
+      margin: '15px',
       backgroundColor: "orange",
       color: "#333",
       display: "inline-block",
       fontFamily: "monospace",
-      fontSize: '32'}
+      fontSize: '150%',
+      height: 'auto',
+      }
+
+      const navBarStyle ={
+        color: 'black',
+        backgroundColor: '#282c34',
+        height: "AUTO",
+      }
+
 
     return (
       <div>
-        <Navbar >
-        <Nav style={{flexDirection: "row"}}>
-          <NavItem style={navstyle} >
-            <Link to="/"> Home </Link>
-          </NavItem>
-          <NavItem style={navstyle}>
-            <Link to="/About"> About </Link>
-          </NavItem>
-      </Nav>
-      </Navbar>
-      <header className="App-header">
-        <p style={navstyle} >Crypto Price and Portfolio Analysis </p>
-
-      </header>
-      <div className="Body-container">
-        <Route exact path="/About" component={about} />
-        <Route exact path="/" component={home} />
+      <div style={navBarStyle} >
+        <Link to="/" style={navstyle}> Home </Link>
+        <Link to="/About" style={navstyle}> About </Link>
       </div>
-</div>
+        <header className="App-header">
+          <p style={navstyle} >Crypto Price and Portfolio Analysis </p>
+        </header>
+          <div className="Body-container">
+              <Route exact path="/" component={home} />
+              <Route exact path="/About" component={about}/>
+          </div>
+
+      </div>
     );
   }
- }
+   }
 
 
 
@@ -69,4 +72,4 @@ class Navigation extends Component {
 
 
 export default Navigation;
-// render(<NavDropdownExample />);
+{/* // render(<NavDropdownExample />); */}

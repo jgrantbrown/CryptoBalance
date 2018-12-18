@@ -1,0 +1,17 @@
+MOT HITTING THIS FILE?
+
+/* override bootstrap navbar colors */
+ /* .navbar,
+.navbar-default {
+   backgroundColor: #282c34,
+} */
+
+ .navBarStyle {
+  padding: 10px;
+  margin: 15px;
+  backgroundColor: #282c34;
+  color: #333;
+  fontFamily: monospace;
+  fontSize: 32px;
+  height: auto;
+}
