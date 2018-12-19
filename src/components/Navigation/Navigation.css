@@ -6,7 +6,7 @@ MOT HITTING THIS FILE?
    backgroundColor: #282c34,
 } */
 
- .navBarStyle {
+ .NavBarStyle {
   padding: 10px;
   margin: 15px;
   backgroundColor: #282c34;
@@ -15,3 +15,15 @@ MOT HITTING THIS FILE?
   fontSize: 32px;
   height: auto;
 }
+
+.NavStyle ={
+  textDecoration: none;
+  color: black;
+  padding: 10px;
+  margin: 15px;
+  backgroundColor: orange;
+  display: inline-block;
+  fontFamily: monospace;
+  fontSize: 150%;
+  height: auto;
+  }

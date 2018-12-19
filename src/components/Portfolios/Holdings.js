@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table ,Row} from 'reactstrap';
 // import InputHolding from '../Cryptos/InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
@@ -25,7 +25,9 @@ class Holdings extends Component {
     const showPortfolio = () => {
      if (this.props.showHoldings === true){  return (
         <>
+        <Row>
           <CryptoCards />
+        </Row>
             {portfolioName}
             <Table>
               <thead>

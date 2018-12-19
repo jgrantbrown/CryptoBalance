@@ -8,7 +8,7 @@ import Portfolio from '../Portfolios/Portfolio'
 
 // import { connect } from 'react-redux';
 // import {getHoldings} from '../../actions/holdingsactions';
-// import './Navigation.css'
+import './Navigation.css';
 
 class Navigation extends Component {
 
@@ -35,6 +35,7 @@ class Navigation extends Component {
       )
     }
 
+// Trying to use style sheets and className but not working yet
     const navstyle ={
       textDecoration: 'none',
       color: 'black',
@@ -56,10 +57,9 @@ class Navigation extends Component {
     return (
       <div>
           <div style={navBarStyle} >
-            <Link to="/" style={navstyle}> Home </Link>
-            <Link to="/About" style={navstyle}> About </Link>
-            <Link to="/Portfolios" style={navstyle}> Portfolios </Link>
-
+            <Link to="/"  style={navstyle}> Home </Link>
+            <Link to="/About" style={navstyle} > About </Link>
+            <Link to="/Portfolios" style={navstyle} > Portfolio </Link>
           </div>
         <header className="App-header">
           <p style={navstyle} >Crypto Price and Portfolio Analysis </p>
@@ -69,7 +69,6 @@ class Navigation extends Component {
               <Route exact path="/About" component={about}/>
               <Route exact path="/Portfolios" component={portfolios}/>
           </div>
-
       </div>
     );
   }

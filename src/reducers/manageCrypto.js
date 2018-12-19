@@ -19,7 +19,6 @@ export default function manageCrypto(state = initialState, action){
         return {...state, portfolios: [...state.portfolios, action.payload]}
 
     case 'GET_HOLDINGS':
-
         console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
         return {...state, currentPortfolio: action.payload}
 
