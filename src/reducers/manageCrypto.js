@@ -3,7 +3,8 @@
 const initialState = {
   currentPortfolio: [],
   portfolios: [],
-  cryptos:[]
+  cryptos:[],
+  showholdings: false,
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -19,7 +20,7 @@ export default function manageCrypto(state = initialState, action){
 
     case 'GET_HOLDINGS':
 
-        // console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
+        console.log("ACTION PAYLOAD FOR GETHOLDINGS:", action.payload)
         return {...state, currentPortfolio: action.payload}
 
     case 'GET_PORTFOLIOS':
@@ -37,6 +38,10 @@ export default function manageCrypto(state = initialState, action){
     case 'GET_ETH':
             // console.log("ACTION PAYLOAD FOR Get ETH:", action.payload)
             return {...state, cryptos: [...state.cryptos,action.payload.data]}
+
+    case 'SHOW_HOLDINGS':
+                    console.log("ACTION PAYLOAD FOR SHOW_HOLDINGS:", action.payload)
+          return {...state, showholdings: true }
 
 
 

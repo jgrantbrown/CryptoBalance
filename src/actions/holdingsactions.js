@@ -74,3 +74,8 @@ export const getHoldings = (portfolio) =>{
   }))
 }
 }
+
+export const showHoldings = () =>  {
+  return{type: "SHOW_HOLDINGS",
+            payload: true}
+}

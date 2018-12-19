@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../Cryptos/Home'
 // import {Navbar, Nav, NavItem} from 'react-bootstrap';
-import { Route, Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import About from '../Navigation/About'
 import Portfolio from '../Portfolios/Portfolio'
 // import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -68,7 +68,6 @@ class Navigation extends Component {
               <Route exact path="/" component={home} />
               <Route exact path="/About" component={about}/>
               <Route exact path="/Portfolios" component={portfolios}/>
-
           </div>
 
       </div>

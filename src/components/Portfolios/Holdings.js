@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 // import InputHolding from '../Cryptos/InputHolding'
+import { connect } from 'react-redux';
+import CryptoCards from '../Cryptos/CryptoCards'
 
 
 class Holdings extends Component {
@@ -23,6 +25,7 @@ class Holdings extends Component {
     const showPortfolio = () => {
      if (this.props.showHoldings === true){  return (
         <>
+          <CryptoCards />
             {portfolioName}
             <Table>
               <thead>
@@ -51,11 +54,16 @@ class Holdings extends Component {
 
     return (
       <div>
-
           {showPortfolio()}
       </div>
 
     )
   }}
 
-export default Holdings;
+  const mapStateToProps = (state) => {
+      // console.log("Portfolios:", state.portfolios)
+      return { showHoldings: state.showholdings,
+      }
+  }
+
+  export default connect(mapStateToProps)(Holdings)
