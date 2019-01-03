@@ -75,3 +75,8 @@ export const showHoldings = () =>  {
   return{type: "SHOW_HOLDINGS",
             payload: true}
 }
+
+export const showAddForm = () =>{
+  return{ type: "SHOW_FORM",
+    payload: true}
+}

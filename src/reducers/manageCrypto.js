@@ -5,6 +5,7 @@ const initialState = {
   portfolios: [],
   cryptos:[],
   showholdings: false,
+  showform: false,
 }
 
 export default function manageCrypto(state = initialState, action){
@@ -42,6 +43,9 @@ export default function manageCrypto(state = initialState, action){
                     console.log("ACTION PAYLOAD FOR SHOW_HOLDINGS:", action.payload)
           return {...state, showholdings: true }
 
+    case 'SHOW_FORM':
+            console.log("ACTION PAYLOAD FOR SHOW_FORM:", action.payload)
+            return {...state, showform: true }
 
 
     default:
