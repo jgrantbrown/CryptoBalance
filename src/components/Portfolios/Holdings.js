@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Table ,Row} from 'reactstrap';
-// import InputHolding from '../Cryptos/InputHolding'
+import InputHolding from '../Cryptos/InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
 import {showAddForm} from '../../actions/holdingsactions';
+
+
 
 class Holdings extends Component {
 
@@ -14,9 +16,11 @@ class Holdings extends Component {
 
       showForm = () => {
             if(this.props.showForm === true){
-              return  <div>Show Form</div>
+              return  <div> <InputHolding
+                visible={this.props.showForm}
+                portfolioID={this.props.currentPortfolio.id}/> </div>
             }else{
-              return  <div>No Form</div>
+              return  <></>
             }
         }
 
@@ -81,6 +85,7 @@ class Holdings extends Component {
       return {
         showHoldings: state.showholdings,
         showForm: state.showform,
+        currentPortfolio: state.currentPortfolio
       }
   }
 
