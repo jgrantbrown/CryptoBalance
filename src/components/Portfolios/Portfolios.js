@@ -26,17 +26,17 @@ class Portfolios extends Component {
         // Render the </InputHolding>
       }
 
-    toggle = () =>{
-     this.setState({
-       dropdownOpen: !this.state.dropdownOpen
-     });
-    }
-
-    toggleAddForm = () => {
-      this.setState({
-        showAddForm: true,
-      });
-    }
+    // toggle = () =>{
+    //  this.setState({
+    //    dropdownOpen: !this.state.dropdownOpen
+    //  });
+    // }
+    //
+    // toggleAddForm = () => {
+    //   this.setState({
+    //     showAddForm: true,
+    //   });
+    // }
 
   render() {
     return (

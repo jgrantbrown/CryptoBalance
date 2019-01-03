@@ -65,17 +65,18 @@ export const getPortfolios = () =>{
 }
 
 export const getHoldings = (portfolio) =>{
-  const url = "http://localhost:3001/portfolios/" + portfolio.id
-  return dispatch => {fetch(url)
-  .then(response => response.json())
-  .then(portfolio => dispatch({
+  return  {
     type: "GET_HOLDINGS",
     payload: portfolio
-  }))
-}
+  }
 }
 
 export const showHoldings = () =>  {
   return{type: "SHOW_HOLDINGS",
             payload: true}
+}
+
+export const showAddForm = () =>{
+  return{ type: "SHOW_FORM",
+    payload: true}
 }

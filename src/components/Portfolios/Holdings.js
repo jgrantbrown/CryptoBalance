@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table ,Row} from 'reactstrap';
 // import InputHolding from '../Cryptos/InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
-
+import {showAddForm} from '../../actions/holdingsactions';
 
 class Holdings extends Component {
-  render() {
-    // console.log("these props for Holdings",this.props.currentPortfolio)
 
+    handleAddCoin = e => {
+        e.preventDefault()
+        this.props.showAddForm()
+      }
+
+      showForm = () => {
+            if(this.props.showForm === true){
+              return  <div>Show Form</div>
+            }else{
+              return  <div>No Form</div>
+            }
+        }
+
+  render() {
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
 
     const holdings = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
@@ -22,10 +34,13 @@ class Holdings extends Component {
                       </ tr>)
                       : <tr></tr>
 
+
     const showPortfolio = () => {
      if (this.props.showHoldings === true){  return (
         <>
+        <Row>
           <CryptoCards />
+        </Row>
             {portfolioName}
             <Table>
               <thead>
@@ -43,7 +58,7 @@ class Holdings extends Component {
               </tbody>
            </Table>
             <p> Total: </p>
-            <button onClick={(e)=>this.props.handleAddCoin(e)}>Add More Hodlr</button>
+            <button onClick={(e)=>this.handleAddCoin(e)}>Add More Hodlr</button>
           <br/>
           <br/>
           </>)
@@ -55,6 +70,7 @@ class Holdings extends Component {
     return (
       <div>
           {showPortfolio()}
+          {this.showForm()}
       </div>
 
     )
@@ -62,8 +78,10 @@ class Holdings extends Component {
 
   const mapStateToProps = (state) => {
       // console.log("Portfolios:", state.portfolios)
-      return { showHoldings: state.showholdings,
+      return {
+        showHoldings: state.showholdings,
+        showForm: state.showform,
       }
   }
 
-  export default connect(mapStateToProps)(Holdings)
+  export default connect(mapStateToProps,{showAddForm})(Holdings)
