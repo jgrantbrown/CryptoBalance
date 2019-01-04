@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
 import {showAddForm} from '../../actions/holdingsactions';
 
-
-
 class Holdings extends Component {
 
     handleAddCoin = e => {

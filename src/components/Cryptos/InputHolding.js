@@ -19,7 +19,7 @@ class InputHolding extends Component {
     // portfolioID={this.props.currentPortfolio.id}
   handleSubmit = e => {
     e.preventDefault()
-      // State is not update here?
+
     let data = { portfolio_id: this.props.portfolioID, ...this.state }
     this.props.addHolding(data);
     this.setState({
@@ -28,6 +28,7 @@ class InputHolding extends Component {
       costbasis: "",
       wallet: ""
     })
+    // Can i change/toggle global state of show for to not render when submitted?
   }
 
   handleChange = evt => {

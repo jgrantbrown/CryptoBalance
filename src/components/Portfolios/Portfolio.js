@@ -5,14 +5,15 @@ import { Link,  Route } from 'react-router-dom'
 import {getHoldings, showHoldings} from '../../actions/holdingsactions';
 // import InputHolding from './InputHolding'
 import Holdings from '../Portfolios/Holdings'
-
+import CreatePortfolio from '../Portfolios/CreatePortfolio'
 
 class Portfolio extends Component {
 
   constructor(props) {
      super(props);
      this.state = {
-       dropdownOpen: false
+       dropdownOpen: false,
+       addPortfolioOpen: false
      };
    }
 
@@ -29,12 +30,22 @@ class Portfolio extends Component {
      // this.props.history.push(`/${portfolio.name}`);
    }
 
+   toggleAddForm =(e)=>{
+     this.setState({
+       addPortfolioOpen: true
+     });
+
+   }
+
   render() {
       const holdings = () => {
         return(<div>
                   <Holdings currentPortfolio={this.props.currentPortfolio} />
                 </div>)
       }
+
+      const addPortfolioForm = this.state.addPortfolioOpen ? <CreatePortfolio showForm={this.state.addPortfolioOpen}/> : <p>  </p>
+
 
       const portfolioList = this.props.portfolios.map((portfolio, index) => {
     // return <DropdownItem  key = {portfolio.id} onClick={()=>this.toggleShowHoldings(portfolio)}   >
@@ -52,6 +63,11 @@ class Portfolio extends Component {
                     </DropdownToggle>
                     <DropdownMenu>
                         <DropdownItem header>Header</DropdownItem>
+
+                        <DropdownItem
+                                onClick={() => this.toggleAddForm()}
+                                style={{ textDecoration: 'none', color: 'black' }}
+                                > ADD Portfolio</DropdownItem>
                         {portfolioList}
                     </DropdownMenu>
                     </Dropdown>
@@ -59,6 +75,7 @@ class Portfolio extends Component {
     return (
         <div>
           {dropDownList}
+          {addPortfolioForm}
           <Route
             exact path={`/:holdings`}
              component={holdings}
@@ -69,8 +86,11 @@ class Portfolio extends Component {
 
   const mapStateToProps = (state) => {
       // console.log("New State in Portfolios:", state.portfolios)
-      return { portfolios: state.portfolios,
-      currentPortfolio: state.currentPortfolio}
+      return {
+        portfolios: state.portfolios,
+        currentPortfolio: state.currentPortfolio,
+
+      }
   }
 
   export default connect(mapStateToProps,{getHoldings,showHoldings})(Portfolio);
