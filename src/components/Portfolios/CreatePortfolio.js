@@ -3,6 +3,8 @@ import { Col, Form, FormGroup, Label, Input  } from 'reactstrap';
 import {addPortfolio} from '../../actions/holdingsactions';
 import { connect } from 'react-redux';
 
+
+
 class CreatePortfolio extends Component {
     constructor(props) {
         super(props);
@@ -28,26 +30,31 @@ class CreatePortfolio extends Component {
     render() {
       const showForm = (this.props.showForm) ?
           <>
-          CREATE A Portfolio:
-          <Form onSubmit={(e)=>this.handleSubmit(e)}>
-            <FormGroup row>
-              <Label for="exampleName" sm={5}>Name</Label>
-              <Col sm={5}>
-                <Input type="text" name="name" id="exampleName"  placeholder="name placeholder" value={this.state.name} onChange={event => this.handleChange(event)} />
-              </Col>
-            </FormGroup>
-             <input type="submit" />
-         </Form>
-       </>
-
-         : <div> </div>
+            CREATE A Portfolio:
+            <Form onSubmit={(e)=>this.handleSubmit(e)}>
+              <FormGroup row>
+                <Label for="exampleName" sm={5}>Name</Label>
+                <Col sm={5}>
+                  <Input type="text" name="name" id="exampleName"  placeholder="name placeholder" value={this.state.name} onChange={event => this.handleChange(event)} />
+                </Col>
+              </FormGroup>
+               <input
+                 type="submit"
+                />
+           </Form>
+         </>
+        :
+         <div></div>
 
         return (
           <div>
             {showForm}
+
           </div>
         )
 
     }}
+
+
 
   export default connect(null,{addPortfolio})(CreatePortfolio);

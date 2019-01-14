@@ -27,6 +27,7 @@ class Portfolio extends Component {
      console.log("Portfolio:", portfolio)
      this.props.showHoldings()
      this.props.getHoldings(portfolio)
+    
      // this.props.history.push(`/${portfolio.name}`);
    }
 
