@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../Cryptos/Home'
+
+import './Navigation.css';
 // import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import About from '../Navigation/About'
@@ -8,66 +10,28 @@ import Portfolio from '../Portfolios/Portfolio'
 
 // import { connect } from 'react-redux';
 // import {getHoldings} from '../../actions/holdingsactions';
-import './Navigation.css';
+
+
 
 class Navigation extends Component {
 
   render() {
-    const about = () => {
-      return (
-        <div>
-          <About/>
-        </div>)
-    }
-
-    const home = () => {
-      return (
-        <div>
-          <Home/>
-        </div>)
-    }
-
-    const portfolios = () =>{
-      return (
-        <div>
-          <Portfolio />
-        </div>
-      )
-    }
-
-// Trying to use style sheets and className but not working yet
-    const navstyle ={
-      textDecoration: 'none',
-      color: 'black',
-      padding: '10px',
-      margin: '15px',
-      backgroundColor: "orange",
-      display: "inline-block",
-      fontFamily: "monospace",
-      fontSize: '150%',
-      height: 'auto',
-      }
-
-      const navBarStyle ={
-        color: 'black',
-        backgroundColor: '#282c34',
-        height: "AUTO",
-      }
 
     return (
       <div>
-          <div style={navBarStyle} >
-            <Link to="/"  style={navstyle}> Home </Link>
-            <Link to="/About" style={navstyle} > About </Link>
-            <Link to="/Portfolios" style={navstyle} > Portfolio </Link>
+          <div className="NavBarStyle" >
+            <Link to="/"  className="NavStyle"> Home </Link>
+            <Link to="/About" className="NavStyle" > About </Link>
+            {/* <Link to="/About" style={navstyle} > About </Link> */}
+            <Link to="/Portfolios" className="NavStyle" > Portfolio </Link>
           </div>
         <header className="App-header">
-          <p style={navstyle} >Crypto Price and Portfolio Analysis </p>
+          <p className="NavStyle" >Crypto Price and Portfolio Analysis </p>
         </header>
           <div className="Body-container">
-              <Route exact path="/" component={home} />
-              <Route exact path="/About" component={about}/>
-              <Route exact path="/Portfolios" component={portfolios}/>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/About" component={About}/>
+              <Route exact path="/Portfolios" component={Portfolio}/>
           </div>
       </div>
     );

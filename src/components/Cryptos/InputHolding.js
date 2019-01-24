@@ -11,7 +11,8 @@ class InputHolding extends Component {
         token: "",
         amount: "",
         costbasis: "",
-        wallet: ""
+        wallet: "",
+        formVisible: this.props.visible
       };
     }
     // Props available passed to component:
@@ -19,15 +20,16 @@ class InputHolding extends Component {
     // portfolioID={this.props.currentPortfolio.id}
   handleSubmit = e => {
     e.preventDefault()
-
     let data = { portfolio_id: this.props.portfolioID, ...this.state }
     this.props.addHolding(data);
     this.setState({
       token: "",
       amount: "",
       costbasis: "",
-      wallet: ""
+      wallet: "",
+      formVisible: false
     })
+
     // Can i change/toggle global state of show for to not render when submitted?
   }
 
@@ -37,7 +39,8 @@ class InputHolding extends Component {
   }
 
   render() {
-    const showForm = (this.props.visible) ?
+    console.log("Form Visisble State:", this.state.formVisible)
+    const showForm = (this.state.formVisible) ?
         <Form onSubmit={(e)=>this.handleSubmit(e)}>
           <FormGroup row>
             <Label for="exampleAmount" sm={2}>Amount</Label>

@@ -1,29 +1,18 @@
-MOT HITTING THIS FILE?
-
-/* override bootstrap navbar colors */
- /* .navbar,
-.navbar-default {
-   backgroundColor: #282c34,
-} */
 
  .NavBarStyle {
-  padding: 10px;
-  margin: 15px;
-  backgroundColor: #282c34;
-  color: #333;
-  fontFamily: monospace;
-  fontSize: 32px;
-  height: auto;
+  color: black;
+  background-color: #282c34;
+  height: AUTO;
 }
 
-.NavStyle ={
-  textDecoration: none;
+.NavStyle {
+  text-decoration: none;
   color: black;
   padding: 10px;
   margin: 15px;
-  backgroundColor: orange;
+  background: #ffa500;
   display: inline-block;
-  fontFamily: monospace;
-  fontSize: 150%;
+  font-family: monospace;
+  font-size: 150%;
   height: auto;
   }
