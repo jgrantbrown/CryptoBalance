@@ -7,7 +7,6 @@ import {getHoldings, showHoldings} from '../../actions/holdingsactions';
 // import Holdings from '../Portfolios/Holdings'
 // import CreatePortfolio from '../Portfolios/CreatePortfolio'
 
-
 class Portfolio extends Component {
 
   constructor(props) {

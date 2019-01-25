@@ -8,7 +8,11 @@ import {getBTC} from './actions/cryptoactions';
 import {getLTC} from './actions/cryptoactions';
 import {getETH} from './actions/cryptoactions';
 
-import Navigation from './components/Navigation/Navigation'
+
+
+import NavBarContainer from './containers/NavBarContainer'
+import HeaderContainer from './containers/HeaderContainer'
+import BodyContainer from './containers/BodyContainer'
 
 
 class App extends Component {
@@ -24,8 +28,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* TRYING TO IMPLEMENT A NAV BAR */}
-        <Navigation />
+
+        {/* <Navigation /> */}
+        <NavBarContainer />
+        <HeaderContainer />
+        <BodyContainer />
       </div>
     );
   }

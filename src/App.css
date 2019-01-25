@@ -41,3 +41,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
+ .NavBarStyle {
+  color: black;
+  background-color: #282c34;
+  height: AUTO;
+}
+
+.NavStyle {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  margin: 15px;
+  background: #ffa500;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 150%;
+  height: auto;
+  }
