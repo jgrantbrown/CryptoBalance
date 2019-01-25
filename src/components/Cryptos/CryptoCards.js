@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Row} from 'reactstrap';
+
 import CryptoCard from './CryptoCard'
+import { Container, Row, Col } from 'reactstrap';
+import './CryptoCards.css';
 
 
 class CryptoCards extends Component {
@@ -8,11 +10,16 @@ class CryptoCards extends Component {
     // get data from databse and change the <cryptocard> to render one card for each coin also change the cryptocard.js
     // to represent just one card
     return(
-      <div>
+      <div className="CryptoMarket" >
           <h1> Current Market Prices</h1>
-          <Row>
-            <CryptoCard />
-          </Row>
+          <Container>
+              <Col xs="10">
+                <Row>
+                  <CryptoCard />
+                </Row>
+              </Col>
+              <br/>
+          </Container>
       </div>
     )
   }
