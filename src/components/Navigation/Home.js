@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CryptoCards from './CryptoCards'
+import CryptoCards from '../Cryptos/CryptoCards'
 import { Container, Row, Col } from 'reactstrap';
 
 

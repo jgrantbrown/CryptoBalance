@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Home from '../Cryptos/Home'
+import Home from './Home'
 
-import './Navigation.css';
+
 // import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import { Link, Route, Switch } from 'react-router-dom';
 import About from '../Navigation/About'

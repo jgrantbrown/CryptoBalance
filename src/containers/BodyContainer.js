@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import './Navigation.css';
 import { Link, Route, Switch } from 'react-router-dom';
-import Home from '../components/Cryptos/Home'
+import Home from '../components/Navigation/Home'
 import About from '../components/Navigation/About'
 import Portfolio from '../components/Portfolios/Portfolio'
-import Holdings from '../components/Portfolios/Holdings'
+import Holdings from '../components/Holdings/Holdings'
 import CreatePortfolio from '../components/Portfolios/CreatePortfolio'
 
 class BodyContainer extends Component {

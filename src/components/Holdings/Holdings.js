@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table ,Row} from 'reactstrap';
-import InputHolding from '../Cryptos/InputHolding'
+import InputHolding from './InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
 import {showAddForm} from '../../actions/holdingsactions';
