@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Form, FormGroup, Label, Input  } from 'reactstrap';
 import {addPortfolio} from '../../actions/holdingsactions';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 
 
@@ -20,6 +21,8 @@ class CreatePortfolio extends Component {
       this.setState({
         name: ""
       });
+  
+      this.props.history.push('/Portfolios');
     }
 
     handleChange = evt => {
@@ -57,4 +60,4 @@ class CreatePortfolio extends Component {
 
 
 
-  export default connect(null,{addPortfolio})(CreatePortfolio);
+  export default withRouter(connect(null,{addPortfolio})(CreatePortfolio));

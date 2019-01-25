@@ -3,9 +3,11 @@ import Home from '../Cryptos/Home'
 
 import './Navigation.css';
 // import {Navbar, Nav, NavItem} from 'react-bootstrap';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import About from '../Navigation/About'
 import Portfolio from '../Portfolios/Portfolio'
+import Holdings from '../Portfolios/Holdings'
+import CreatePortfolio from '../Portfolios/CreatePortfolio'
 // import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 // import { connect } from 'react-redux';
@@ -29,9 +31,13 @@ class Navigation extends Component {
           <p className="NavStyle" >Crypto Price and Portfolio Analysis </p>
         </header>
           <div className="Body-container">
+            <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/About" component={About}/>
               <Route exact path="/Portfolios" component={Portfolio}/>
+              <Route  exact path="/portfolio/:portfolio" component={Holdings} />
+              {/* <Route  exact path="/portfolio/AddNewPortfolio" component={CreatePortfolio} /> */}
+            </Switch>
           </div>
       </div>
     );

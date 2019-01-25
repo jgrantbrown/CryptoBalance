@@ -7,6 +7,8 @@ import {getHoldings, showHoldings} from '../../actions/holdingsactions';
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 
+
+
 class Portfolio extends Component {
 
   constructor(props) {
@@ -27,7 +29,7 @@ class Portfolio extends Component {
      console.log("Portfolio:", portfolio)
      this.props.showHoldings()
      this.props.getHoldings(portfolio)
-    
+
      // this.props.history.push(`/${portfolio.name}`);
    }
 
@@ -39,23 +41,20 @@ class Portfolio extends Component {
    }
 
   render() {
-      const holdings = () => {
-        return(<div>
-                  <Holdings currentPortfolio={this.props.currentPortfolio} />
-                </div>)
-      }
-
       const addPortfolioForm = this.state.addPortfolioOpen ? <CreatePortfolio showForm={this.state.addPortfolioOpen}/> : <p>  </p>
 
 
       const portfolioList = this.props.portfolios.map((portfolio, index) => {
-    // return <DropdownItem  key = {portfolio.id} onClick={()=>this.toggleShowHoldings(portfolio)}   >
-        return <DropdownItem key = {portfolio.id}
-                                onClick={() => this.toggleShowHoldings(portfolio)}
-                                style={{ textDecoration: 'none', color: 'black' }}
-                                to={`/${portfolio.name}`} >
-                                {portfolio.name}
-                                </DropdownItem>
+        const portfolionameroute = `/portfolio/${portfolio.name}`
+        console.log("Route:",portfolionameroute)
+        return      <Link to={portfolionameroute} key={index}>
+                      <DropdownItem
+                      onClick={() => this.toggleShowHoldings(portfolio)}
+                      style={{ textDecoration: 'none', color: 'black' }}>
+                      {portfolio.name}
+                      </DropdownItem></Link>
+
+
                       })
 
       const dropDownList =  <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -63,12 +62,13 @@ class Portfolio extends Component {
                       Portfolios List
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem header>Header</DropdownItem>
 
-                        <DropdownItem
+                      {/* Add style to add protfolio on list  */}
+                      <Link to='Portfolio/AddNewPortfolio'>  <DropdownItem
                                 onClick={() => this.toggleAddForm()}
                                 style={{ textDecoration: 'none', color: 'black' }}
-                                > ADD Portfolio</DropdownItem>
+
+                                > ADD Portfolio</DropdownItem></Link>
                         {portfolioList}
                     </DropdownMenu>
                     </Dropdown>
@@ -76,11 +76,8 @@ class Portfolio extends Component {
     return (
         <div>
           {dropDownList}
+          <Route  exact path="/Portfolio/AddNewPortfolio" component={addPortfolioForm}/>
           {addPortfolioForm}
-          <Route
-            exact path={`/:holdings`}
-             component={holdings}
-            />
         </div>
       )
     }}
@@ -95,8 +92,3 @@ class Portfolio extends Component {
   }
 
   export default connect(mapStateToProps,{getHoldings,showHoldings})(Portfolio);
-
-  // <Route
-  //   exact path={`/:holdings`}
-  //   render{()=><Holdings currentPortfolio={this.props.currentPortfolio} />}
-  //   component={holdings}/>
