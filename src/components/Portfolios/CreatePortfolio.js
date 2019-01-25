@@ -21,7 +21,7 @@ class CreatePortfolio extends Component {
       this.setState({
         name: ""
       });
-  
+
       this.props.history.push('/Portfolios');
     }
 
@@ -31,28 +31,20 @@ class CreatePortfolio extends Component {
     }
 
     render() {
-      const showForm = (this.props.showForm) ?
-          <>
-            CREATE A Portfolio:
-            <Form onSubmit={(e)=>this.handleSubmit(e)}>
-              <FormGroup row>
-                <Label for="exampleName" sm={5}>Name</Label>
-                <Col sm={5}>
-                  <Input type="text" name="name" id="exampleName"  placeholder="name placeholder" value={this.state.name} onChange={event => this.handleChange(event)} />
-                </Col>
-              </FormGroup>
-               <input
-                 type="submit"
-                />
-           </Form>
-         </>
-        :
-         <div></div>
-
         return (
           <div>
-            {showForm}
-
+              CREATE A Portfolio:
+              <Form onSubmit={(e)=>this.handleSubmit(e)}>
+                <FormGroup row>
+                  <Label for="exampleName" sm={5}>Name</Label>
+                  <Col sm={5}>
+                    <Input type="text" name="name" id="exampleName"  placeholder="name placeholder" value={this.state.name} onChange={event => this.handleChange(event)} />
+                  </Col>
+                </FormGroup>
+                 <input
+                   type="submit"
+                  />
+             </Form>
           </div>
         )
 

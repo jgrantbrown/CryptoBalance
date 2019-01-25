@@ -24,7 +24,6 @@ class Navigation extends Component {
           <div className="NavBarStyle" >
             <Link to="/"  className="NavStyle"> Home </Link>
             <Link to="/About" className="NavStyle" > About </Link>
-            {/* <Link to="/About" style={navstyle} > About </Link> */}
             <Link to="/Portfolios" className="NavStyle" > Portfolio </Link>
           </div>
         <header className="App-header">
@@ -36,7 +35,8 @@ class Navigation extends Component {
               <Route exact path="/About" component={About}/>
               <Route exact path="/Portfolios" component={Portfolio}/>
               <Route  exact path="/portfolio/:portfolio" component={Holdings} />
-              {/* <Route  exact path="/portfolio/AddNewPortfolio" component={CreatePortfolio} /> */}
+              <Route  exact path="/Portfolios/AddNewPortfolio" component={CreatePortfolio} />
+              {/* <Route  exact path="/Portfolios/AddNewPortfolio" render={() => <div>Home</div>} /> */}
             </Switch>
           </div>
       </div>

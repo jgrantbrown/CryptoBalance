@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CardDeck,Row, Col,Card, CardImg, CardBody,
+import { CardDeck,Card, CardImg, CardBody,
   CardTitle, CardSubtitle} from 'reactstrap';
 import { connect } from 'react-redux';
 
