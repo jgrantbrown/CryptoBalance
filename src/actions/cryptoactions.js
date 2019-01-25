@@ -1,6 +1,6 @@
 
 
-//  I simply this for one dynamic method?
+//  simply this for one dynamic method?
 // const COINS = ["BTC","LTC","ETH"]
 
 // export const getCoin = (COINS) =>{
