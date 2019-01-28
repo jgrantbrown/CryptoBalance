@@ -5,7 +5,7 @@ import Home from './Home'
 // import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import { Link, Route, Switch } from 'react-router-dom';
 import About from '../Navigation/About'
-import Portfolio from '../Portfolios/Portfolio'
+import PortfolioListContainer from '../Portfolios/PortfolioListContainer'
 import Holdings from '../Portfolios/Holdings'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 // import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
