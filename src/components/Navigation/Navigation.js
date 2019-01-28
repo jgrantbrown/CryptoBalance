@@ -6,7 +6,7 @@ import Home from './Home'
 import { Link, Route, Switch } from 'react-router-dom';
 import About from '../Navigation/About'
 import PortfolioListContainer from '../Portfolios/PortfolioListContainer'
-import Holdings from '../Portfolios/Holdings'
+import HoldingsContainer from '../Portfolios/HoldingsContainer'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
 // import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -34,7 +34,7 @@ class Navigation extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/About" component={About}/>
               <Route exact path="/Portfolios" component={Portfolio}/>
-              <Route  exact path="/portfolio/:portfolio" component={Holdings} />
+              <Route  exact path="/portfolio/:portfolio" component={HoldingsContainer} />
               <Route  exact path="/Portfolios/AddNewPortfolio" component={CreatePortfolio} />
               {/* <Route  exact path="/Portfolios/AddNewPortfolio" render={() => <div>Home</div>} /> */}
             </Switch>

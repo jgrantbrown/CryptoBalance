@@ -24,45 +24,26 @@ class PortfolioListContainer extends Component {
      }));
    }
 
-   toggleShowHoldings = (portfolio) => {
-     console.log("Portfolio:", portfolio)
-     this.props.showHoldings()
-     this.props.getHoldings(portfolio)
-   }
-
   render() {
-
-      const dropDownList =  <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                <DropdownToggle caret>
-                                  Portfolios List
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                  {/* Add style to add protfolio on list  */}
-                                  <Link to='/Portfolios/AddNewPortfolio'>
-                                    <DropdownItem
-                                      style={{ textDecoration: 'none', color: 'black' }}>
-                                      ADD Portfolio
-                                    </DropdownItem>
-                                  </Link>
-                                    <PortfolioListItem />
-                                </DropdownMenu>
-                            </Dropdown>
 
     return (
         <div>
-          {dropDownList}
-
+          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle caret>
+                  Portfolios List
+              </DropdownToggle>
+                <DropdownMenu>
+                    {/* Add style to add protfolio on list  */}
+                  <Link to='/Portfolios/AddNewPortfolio'>
+                    <DropdownItem style={{ textDecoration: 'none', color: 'black' }}>
+                      ADD Portfolio
+                    </DropdownItem>
+                  </Link>
+                  <PortfolioListItem />
+                </DropdownMenu>
+         </Dropdown>
         </div>
       )
     }}
 
-  const mapStateToProps = (state) => {
-      // console.log("New State in Portfolios:", state.portfolios)
-      return {
-        portfolios: state.portfolios,
-        currentPortfolio: state.currentPortfolio,
-
-      }
-  }
-
-  export default connect(mapStateToProps,{getHoldings,showHoldings})(PortfolioListContainer);
+    export default PortfolioListContainer;

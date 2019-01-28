@@ -4,8 +4,9 @@ import InputHolding from './InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
 import {showAddForm} from '../../actions/holdingsactions';
+import Holding from "./Holding"
 
-class Holdings extends Component {
+class HoldingsContainer extends Component {
 
     handleAddCoin = e => {
         e.preventDefault()
@@ -24,18 +25,6 @@ class Holdings extends Component {
 
   render() {
     const portfolioName = (this.props.currentPortfolio.name) ? <div><p>Portfolio Name:</p><h1> {this.props.currentPortfolio.name} </h1></div> : <></>
-
-    const holdings = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
-                       <tr key={index}>
-                         <td>{holding.token}</td>
-                         <td>{holding.wallet}</td>
-                         <td>{holding.amount}</td>
-                         <td>{holding.costbasis}</td>
-                         <td>TBD MKT Price</td>
-                        <td>TBD MKT VALUE</td>
-                      </ tr>)
-                      : <tr></tr>
-
 
     const showPortfolio = () => {
      if (this.props.showHoldings === true){  return (
@@ -56,7 +45,7 @@ class Holdings extends Component {
                 </tr>
               </thead>
               <tbody>
-                  {holdings}
+                  <Holding />
               </tbody>
            </Table>
             <p> Total: </p>
@@ -87,4 +76,4 @@ class Holdings extends Component {
       }
   }
 
-  export default connect(mapStateToProps,{showAddForm})(Holdings)
+  export default connect(mapStateToProps,{showAddForm})(HoldingsContainer)
