@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import Home from './Home'
 
-
-// import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import { Link, Route, Switch } from 'react-router-dom';
 import About from '../Navigation/About'
 import PortfolioListContainer from '../Portfolios/PortfolioListContainer'
 import HoldingsContainer from '../Portfolios/HoldingsContainer'
 import CreatePortfolio from '../Portfolios/CreatePortfolio'
-// import { Container, Row, Col,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
-// import { connect } from 'react-redux';
-// import {getHoldings} from '../../actions/holdingsactions';
-
 
 
 class Navigation extends Component {
@@ -26,9 +19,7 @@ class Navigation extends Component {
             <Link to="/About" className="NavStyle" > About </Link>
             <Link to="/Portfolios" className="NavStyle" > Portfolio </Link>
           </div>
-        <header className="App-header">
-          <p className="NavStyle" >Crypto Price and Portfolio Analysis </p>
-        </header>
+
           <div className="Body-container">
             <Switch>
               <Route exact path="/" component={Home} />

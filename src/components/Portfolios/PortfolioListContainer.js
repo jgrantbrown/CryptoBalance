@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Link} from 'react-router-dom'
-import {getHoldings, showHoldings} from '../../actions/holdingsactions';
+// import {getHoldings, showHoldings} from '../../actions/holdingsactions';
 import PortfolioListItem from './PortfolioListItem'
 // import InputHolding from './InputHolding'
 // import Holdings from '../Portfolios/Holdings'

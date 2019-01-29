@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link} from 'react-router-dom'
 import {getHoldings, showHoldings} from '../../actions/holdingsactions';

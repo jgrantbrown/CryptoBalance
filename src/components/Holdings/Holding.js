@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
-import { Table ,Row} from 'reactstrap';
-
-import { connect } from 'react-redux';
 
 
 class Holding extends Component {
 
+  constructor(props) {
+      super(props);
+      this.state = {
+        counter: 0,
+      };
+    }
+
+    handleClick = (e) =>{
+      e.preventDefault()
+          this.setState({
+            counter: (this.state.counter + 1)
+          })
+          // this.setState(prevState => ({ counter: prevState.counter+ 1 }));
+        }
 
   render() {
 
-    const holding = (this.props.currentPortfolio.holdings) ? this.props.currentPortfolio.holdings.map((holding,index) =>
-                       <tr key={index}>
-                         <td>{holding.token}</td>
-                         <td>{holding.wallet}</td>
-                         <td>{holding.amount}</td>
-                         <td>{holding.costbasis}</td>
-                         <td>TBD MKT Price</td>
-                        <td>TBD MKT VALUE</td>
-                      </ tr>)
-                      : <tr></tr>
-
     return (
-      <>{holding}</>
-    )
+      <tr key={this.props.holding.index}>
+        <td>{this.props.holding.token}</td>
+        <td>{this.props.holding.wallet}</td>
+        <td>{this.props.holding.amount}</td>
+        <td>{this.props.holding.costbasis}</td>
+        <td>TBD MKT Price</td>
+       <td>TBD MKT VALUE</td>
+     <td>  <button onClick={this.handleClick}>Counter</button></td>
+     <td> {this.state.counter } </td>
+     </ tr>
+   )
+
   }}
 
-  const mapStateToProps = (state) => {
-      // console.log("Portfolios:", state.portfolios)
-      return {
-        currentPortfolio: state.currentPortfolio
-      }
-  }
 
-  export default connect(mapStateToProps)(Holding)
+  export default Holding

@@ -4,7 +4,7 @@ import InputHolding from './InputHolding'
 import { connect } from 'react-redux';
 import CryptoCards from '../Cryptos/CryptoCards'
 import {showAddForm} from '../../actions/holdingsactions';
-import Holding from "./Holding"
+import Holdings from "./Holdings"
 
 class HoldingsContainer extends Component {
 
@@ -45,7 +45,7 @@ class HoldingsContainer extends Component {
                 </tr>
               </thead>
               <tbody>
-                  <Holding />
+                  <Holdings />
               </tbody>
            </Table>
             <p> Total: </p>

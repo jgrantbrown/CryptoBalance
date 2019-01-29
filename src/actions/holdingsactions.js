@@ -31,13 +31,17 @@ export const postHolding = (url, data)=>{
 // ACtion with data from post of new portfolio dispatch to reducer
 export const addPortfolio = (portfolio) => {
   // console.log("Action addportfolio:", portfolio)
+  console.log('C')
   return dispatch => {
     postPortfolio("http://localhost:3001/portfolios", portfolio)
-    .then(response => dispatch(  {
+    .then(response => {
+      console.log('D')
+      dispatch(  {
         type: 'ADD_PORTFOLIO',
         payload: response
-      }))
+      })})
   }
+  
 }
 
 // ACtion with data from post of new Holding dipatch to reducer
